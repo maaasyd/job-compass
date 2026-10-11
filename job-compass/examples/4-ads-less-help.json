@@ -1,0 +1,111 @@
+{
+  "page": "ads-less-help",
+  "title": "Three jobs, with less help",
+  "checked": "2026-10-11",
+  "jobs": [
+    {
+      "id": "trainer",
+      "title": "Chef Trainer – Hospitality Apprenticeships",
+      "employer": "Northgate Skills",
+      "facts": ["Made-up example ad", "Manchester, with travel", "Monday to Friday", "£30,000 plus mileage"],
+      "link": "https://example.com/jobs/chef-trainer",
+      "words": [
+        ["caseload", "The group of people you are responsible for. Here, about 35 apprentices."],
+        ["commis chef", "The most junior chef in a kitchen, usually still learning."],
+        ["progress reviews", "Regular meetings to check how an apprentice is getting on, with them and their boss."],
+        ["End-Point Assessment", "The final test at the end of an apprenticeship, run by someone from outside."],
+        ["e-portfolio", "An online folder where an apprentice’s work and progress are kept."],
+        ["employer partners", "The restaurants and hotels where the apprentices work."],
+        ["sous chef", "The second in charge of a kitchen, after the head chef."],
+        ["mileage", "Money paid back for each mile you drive for work."]
+      ],
+      "lines": [
+        { "wrote": "Minimum 3 years' experience as a chef, ideally at sous chef level or above", "is": "must", "signal": "Minimum", "why": "The three years are a must. The second half, after “ideally”, is only a wish." },
+        { "wrote": "A teaching or assessing qualification (e.g. Level 3 Award in Education and Training) is desirable", "is": "wish", "signal": "is desirable", "why": "And they add that they will help you get it." },
+        { "wrote": "Full driving licence and access to a car", "is": "must", "why": "No softening word, so a must. The job means driving between workplaces." }
+      ],
+      "short": "Northgate Skills trains young chefs while they work in restaurants and hotels. You would visit about 35 of them at their workplaces, teach them, check how they’re getting on, and get them ready for their final test.",
+      "week": [
+        ["people", "Visit apprentices in their kitchens and watch them cook"],
+        ["people", "Teach small groups, in person or online"],
+        ["check", "Check each apprentice’s progress with them and their boss"],
+        ["write", "Keep each apprentice’s records up to date online"],
+        ["org", "Plan your week of visits across Greater Manchester"],
+        ["hands", "Show cooking techniques and say what went well and what didn’t"]
+      ],
+      "know": [
+        "You’d drive a lot. The ad pays for the miles and asks for your own car.",
+        "They will help you get the teaching qualification, so you don’t need it to apply.",
+        "Daytime hours, Monday to Friday."
+      ]
+    },
+    {
+      "id": "planner",
+      "title": "Production Planner",
+      "employer": "Brightwater Bakery",
+      "facts": ["Made-up example ad", "Oldham", "Monday to Friday, 8am to 4:30pm", "£29,000 to £32,000"],
+      "link": "https://example.com/jobs/production-planner",
+      "words": [
+        ["Operations Manager", "The person in charge of the day-to-day running of the bakery."],
+        ["labour", "Here it means the people available to work each shift."],
+        ["raw material", "Ingredients."],
+        ["line capacity", "How much one production line can make in an hour."],
+        ["ERP system", "Business software that holds orders, stock and plans in one place."],
+        ["SAP", "A widely used ERP system."],
+        ["plan adherence", "How closely what was made matched the plan."],
+        ["fast-moving", "Here: a business where products sell and change quickly, like food or drinks."]
+      ],
+      "lines": [
+        { "wrote": "Experience of planning or scheduling in a food or fast-moving environment", "is": "must", "why": "No softening word, so a must. Kitchens plan all the time, and whether that counts is a fair question to ask them." },
+        { "wrote": "Excellent Excel skills", "is": "must", "why": "A must, and “excellent” sets a level. In planning jobs, Excel is the main tool." },
+        { "wrote": "Knowledge of SAP or a similar ERP system would be an advantage", "is": "wish", "signal": "would be an advantage", "why": "Most people learn these systems on the job." }
+      ],
+      "short": "Brightwater Bakery bakes for supermarkets and coffee chains. Every day someone decides what each of the three production lines makes, and how many people are needed. You would make that plan, and change it when an order or an ingredient doesn’t turn up.",
+      "week": [
+        ["org", "Make tomorrow’s plan for what each line bakes"],
+        ["org", "Change the plan when an order or a delivery changes"],
+        ["people", "Agree with the shift managers how many people each shift needs"],
+        ["data", "Keep an eye on stocks of ingredients and packaging"],
+        ["data", "Report how closely the bakery kept to the plan, and how much was wasted"]
+      ],
+      "know": [
+        "It’s an office job inside a bakery, with daytime hours.",
+        "Of the three ads, this one asks most for computer skills.",
+        "Free bakery products are included."
+      ]
+    },
+    {
+      "id": "schoolcook",
+      "title": "Kitchen Manager – Primary School",
+      "employer": "Meadow Lane Catering",
+      "facts": ["Made-up example ad", "Stockport", "Term time only, 7:30am to 2:30pm", "£13.20 an hour"],
+      "link": "https://example.com/jobs/school-kitchen-manager",
+      "words": [
+        ["Term time only", "You work only while the school is open. Ask how the pay works over the holidays."],
+        ["menu cycle", "A set of menus that repeats, here every four weeks."],
+        ["special diets", "Meals for children who can’t eat certain foods, for health or religious reasons."],
+        ["dietary request forms", "Forms that parents fill in to tell the kitchen what their child can’t eat."],
+        ["DBS check", "A background check for people who work with children. DBS stands for Disclosure and Barring Service."],
+        ["kitchen assistants", "The team who help prepare, serve and clean."]
+      ],
+      "lines": [
+        { "wrote": "Previous experience running a kitchen or supervising a team", "is": "must", "why": "No softening word, so a must. Supervising is enough; you don’t need to have been head chef." },
+        { "wrote": "Level 3 desirable", "is": "wish", "signal": "desirable", "why": "In brackets after the Level 2 certificate, which is the must. The higher level is only a wish." },
+        { "wrote": "An enhanced DBS check is required for this role", "is": "must", "signal": "is required", "why": "A must, and they arrange it for you." }
+      ],
+      "short": "Meadow Lane Catering cooks lunch in primary schools. At this school, about 320 children eat every day. You’d run the kitchen with four assistants: cooking, keeping children with allergies safe, ordering food and keeping the records.",
+      "week": [
+        ["hands", "Cook lunch for about 320 children from a set menu"],
+        ["people", "Run a small team of four kitchen assistants"],
+        ["check", "Make sure children with allergies get safe meals"],
+        ["org", "Order the food online and stay within the budget"],
+        ["check", "Fill in the daily food safety records"]
+      ],
+      "know": [
+        "The shortest hours of all the ads, and the school holidays are free.",
+        "Pay is by the hour and only in term time, so the yearly total is lower than it first looks.",
+        "Of the three ads, this is the one with the most cooking."
+      ]
+    }
+  ]
+}

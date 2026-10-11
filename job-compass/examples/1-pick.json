@@ -1,0 +1,16 @@
+{
+  "page": "pick",
+  "title": "Kinds of work",
+  "candidates": [
+    { "id": "safety", "name": "Food safety & quality", "day": "You check that food is made safely and that the rules are followed. You walk through kitchens or production lines, take samples, keep records and explain what needs to change." },
+    { "id": "buying", "name": "Buying & suppliers", "day": "You decide what a company buys, compare prices, talk to suppliers and make sure the right ingredients arrive on time." },
+    { "id": "production", "name": "Production planning", "day": "In a large kitchen or food factory, you plan what gets made each day, how much, and by whom. When an order changes, you sort out the plan." },
+    { "id": "development", "name": "Recipe & product development", "day": "You invent and test new dishes or products for a food company or a chain, write the recipes down exactly, and adjust them until they work in large amounts." },
+    { "id": "teaching", "name": "Teaching & training", "day": "You teach cooking at a college, in a training kitchen or to new staff. You plan sessions, show techniques and help people get better." },
+    { "id": "sales", "name": "Sales & customer care for food suppliers", "day": "You look after restaurants and shops that buy from a food supplier. You visit them, take orders, suggest products and fix problems." },
+    { "id": "events", "name": "Events & catering planning", "day": "You plan the food for weddings, conferences or festivals: menus, staff, timings and suppliers. On the day, you keep it all running." },
+    { "id": "care", "name": "Cooking in schools, hospitals & care homes", "day": "You still cook, but in daytime hours. You plan menus for people with different needs, such as allergies or soft diets, and run a small team." },
+    { "id": "media", "name": "Food photography & content", "day": "You photograph, film or write about food for a brand, a magazine or social media. You style dishes, plan shoots and edit." },
+    { "id": "running", "name": "Running a café or canteen", "day": "You keep a café, a hotel kitchen or a staff canteen running smoothly: rotas, stock, costs, cleanliness and the team." }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "page": "quiz",
+  "title": "Kinds of work quiz",
+  "directions": [
+    {
+      "id": "safety",
+      "name": "Food safety & quality",
+      "day": "You check that food is made safely and that the rules are followed. You walk through kitchens or production lines, take samples, keep records and explain what needs to change.",
+      "titles": ["Quality Assistant", "Food Safety Officer", "Technical Assistant (food)", "Hygiene Auditor", "Quality Technician"],
+      "where": "Food factories, catering companies, supermarket suppliers and hotel groups.",
+      "bring": "Six years in restaurant kitchens, where food safety rules apply every day.",
+      "know": "Many of these jobs ask for a higher food safety certificate than kitchen staff need. Some employers pay for the course."
+    },
+    {
+      "id": "buying",
+      "name": "Buying & suppliers",
+      "day": "You decide what a company buys, compare prices, talk to suppliers and make sure the right ingredients arrive on time.",
+      "titles": ["Assistant Buyer", "Purchasing Assistant", "Buyer (food)", "Supply Coordinator", "Procurement Assistant"],
+      "where": "Food wholesalers, restaurant groups, catering companies and food factories.",
+      "bring": "You said you enjoy ordering stock and dealing with suppliers. That is this job on a small scale.",
+      "know": "Most of the day is at a desk, on the phone and in spreadsheets. Search for “assistant buyer” first, because “buyer” on its own often means several years of experience."
+    },
+    {
+      "id": "production",
+      "name": "Production planning",
+      "day": "In a large kitchen or food factory, you plan what gets made each day, how much, and by whom. When an order changes, you sort out the plan.",
+      "titles": ["Production Planner", "Production Coordinator", "Production Supervisor (food)", "Central Kitchen Supervisor"],
+      "where": "Food factories, bakeries, central kitchens of restaurant chains and airline caterers.",
+      "bring": "Six years of kitchen services, each one a plan that has to come together at a fixed time.",
+      "know": "Factories often run early shifts. If daytime hours matter to you, check the hours in each ad."
+    },
+    {
+      "id": "development",
+      "name": "Recipe & product development",
+      "day": "You invent and test new dishes or products for a food company or a chain, write the recipes down exactly, and adjust them until they work in large amounts.",
+      "titles": ["Development Chef", "Product Developer (food)", "Culinary Development Assistant", "Development Chef Assistant"],
+      "where": "Food manufacturers, supermarket suppliers and restaurant chains.",
+      "bring": "Your training as a chef and six years of cooking. This is the direction closest to the cooking itself.",
+      "know": "These jobs are fewer than the others, and many sit in food factories that supply supermarkets. They usually have office hours."
+    },
+    {
+      "id": "teaching",
+      "name": "Teaching & training",
+      "day": "You teach cooking at a college, in a training kitchen or to new staff. You plan sessions, show techniques and help people get better.",
+      "titles": ["Chef Trainer", "Catering Lecturer", "Cookery School Tutor", "Apprenticeship Trainer (hospitality)"],
+      "where": "Colleges, cookery schools, training companies and large restaurant groups.",
+      "bring": "You said you like showing new cooks how things work. That is most of this job.",
+      "know": "College jobs may ask for a teaching certificate, which can often be done part-time while you work."
+    },
+    {
+      "id": "sales",
+      "name": "Sales & customer care for food suppliers",
+      "day": "You look after restaurants and shops that buy from a food supplier. You visit them, take orders, suggest products and fix problems.",
+      "titles": ["Account Manager (food service)", "Field Sales Representative (food)", "Customer Service Coordinator", "Business Development Chef"],
+      "where": "Food wholesalers, drinks companies, equipment suppliers and specialist food producers.",
+      "bring": "You’ve been on the other side: you said you order stock and deal with suppliers in your kitchen.",
+      "know": "Sales jobs usually come with targets. Customer care jobs look after customers you already have. Check which one an ad really describes."
+    },
+    {
+      "id": "care",
+      "name": "Cooking in schools, hospitals & care homes",
+      "day": "You still cook, but in daytime hours. You plan menus for people with different needs, such as allergies or soft diets, and run a small team.",
+      "titles": ["School Cook", "Kitchen Manager (schools)", "Hospital Chef", "Care Home Cook", "Catering Supervisor"],
+      "where": "School caterers, hospitals, care homes and councils.",
+      "bring": "Your six years of cooking, and these jobs mostly have the daytime hours you said you want.",
+      "know": "Pay is often by the hour, and school jobs may be term time only. Work out the yearly total before comparing."
+    }
+  ],
+  "questions": [
+    { "q": "Which Tuesday morning sounds nicest?", "options": [
+      ["production", "Reworking tomorrow’s production plan after a big order came in late"],
+      ["teaching", "Showing a group of trainees how to break down a whole chicken"],
+      ["sales", "Visiting a restaurant that buys from us to talk through its new menu"],
+      ["care", "Cooking lunch for a school, with three different allergy versions"]
+    ] },
+    { "q": "Which finished piece of work would make you proudest?", "options": [
+      ["safety", "A kitchen that passed its inspection because of the changes I suggested"],
+      ["development", "A new sauce on supermarket shelves, made from my recipe"],
+      ["sales", "A customer who stayed with us for years because I looked after them"],
+      ["care", "A care home menu that the residents look forward to"]
+    ] },
+    { "q": "How much contact with people do you want in a working day?", "options": [
+      ["safety", "Some, mostly short visits and talks about what I found"],
+      ["buying", "Lots of calls and emails with suppliers, from a desk"],
+      ["teaching", "A room full of people for most of the day"],
+      ["care", "A small team I know well, and the people we cook for"]
+    ] },
+    { "q": "A delivery arrives with half the order missing. What do you want to do?", "options": [
+      ["safety", "Check whether what did arrive is safe to use"],
+      ["buying", "Call the supplier and get the rest here this afternoon"],
+      ["production", "Rework today’s plan around what we actually have"],
+      ["sales", "Tell our customers early and offer them something else"]
+    ] },
+    { "q": "Which part of a new menu would you want to work on?", "options": [
+      ["buying", "Finding suppliers and a good price for the ingredients"],
+      ["production", "Working out how to make it in large amounts, on time"],
+      ["development", "Creating and testing the dishes until they’re right"],
+      ["care", "Making sure everyone can eat it, including special diets"]
+    ] },
+    { "q": "Which compliment would mean the most to you?", "options": [
+      ["safety", "“Because of you, nobody got ill.”"],
+      ["production", "“Everything was ready on time, as always.”"],
+      ["development", "“I’ve never tasted anything like this.”"],
+      ["teaching", "“You explained it so that I finally got it.”"]
+    ] },
+    { "q": "Every job has some pressure. Which kind could you live with?", "options": [
+      ["buying", "Prices going up, and having to find a cheaper way"],
+      ["development", "A launch date for a product that isn’t right yet"],
+      ["teaching", "A class that isn’t getting it, with an exam coming"],
+      ["sales", "A monthly target that shows clearly how I’m doing"]
+    ] },
+    { "q": "How would you like your week to look?", "options": [
+      ["buying", "At a desk most days, with the odd visit to a supplier"],
+      ["teaching", "A timetable of sessions that repeats every week"],
+      ["sales", "On the road, visiting different customers each day"],
+      ["care", "Monday to Friday, and home by mid-afternoon"]
+    ] },
+    { "q": "Think of a good day in a kitchen. What made it good?", "hint": "Any good day counts, even a small one.", "options": [
+      ["safety", "Everything was clean, labelled and in its place"],
+      ["production", "A huge service went exactly to plan"],
+      ["sales", "A regular came back to tell us how much they loved it"],
+      ["care", "I cooked something simple that made someone’s day"]
+    ] },
+    { "q": "A café wants to throw away less food. Which part is yours?", "options": [
+      ["safety", "Checking how food is stored and how long it really lasts"],
+      ["buying", "Ordering smaller amounts, more often, from the right suppliers"],
+      ["development", "Creating dishes that use up what’s left over"],
+      ["care", "Planning portions so people get what they need, no more"]
+    ] },
+    { "q": "Someone hands you a messy stock room. What do you most want to do?", "options": [
+      ["safety", "Throw out what’s past its date and label everything else"],
+      ["buying", "Count it all and fix what we order next time"],
+      ["production", "Plan the week’s cooking around what’s already there"],
+      ["teaching", "Show the team a system so it stays tidy"]
+    ] },
+    { "q": "Which sentence fits you?", "options": [
+      ["buying", "I like comparing options until I find the right deal"],
+      ["production", "I like it when a plan works out exactly"],
+      ["development", "I like trying something new to see if it works"],
+      ["sales", "I like it when I can win someone over"]
+    ] },
+    { "q": "What gives you energy at work?", "options": [
+      ["production", "Ticking off a long list and seeing things get done"],
+      ["development", "Tasting, adjusting and tasting again"],
+      ["teaching", "Seeing someone get better at something week by week"],
+      ["care", "Knowing that what I cooked really mattered to someone"]
+    ] },
+    { "q": "A food company gives you one month. Which task do you pick?", "options": [
+      ["safety", "Write clear food safety instructions for all their kitchens"],
+      ["development", "Create a new vegetarian range for their shops"],
+      ["teaching", "Plan and run the training for their new kitchen staff"],
+      ["sales", "Win five new restaurants as customers"]
+    ] }
+  ]
+}

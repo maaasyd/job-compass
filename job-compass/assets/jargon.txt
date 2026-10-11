@@ -1,0 +1,53 @@
+# Words that should not appear in the page's own plain-language text.
+# They are fine inside quotes from an ad and as terms in a word list, where they get explained.
+# One word or phrase per line. Matching ignores case.
+stakeholder
+stakeholders
+leverage
+synergy
+synergies
+deliverable
+deliverables
+cross-functional
+end-to-end
+fast-paced
+proactive
+proactively
+holistic
+scalable
+best practice
+best practices
+value-add
+actionable
+ownership
+self-starter
+dynamic environment
+results-driven
+skill set
+skillset
+competencies
+competency
+core competence
+key performance indicator
+KPI
+KPIs
+ROI
+B2B
+B2C
+SaaS
+ESG
+onboarding
+upskilling
+touchpoint
+touchpoints
+bandwidth
+alignment
+drive impact
+impactful
+streamline
+optimise
+optimize
+utilise
+utilize
+facilitate
+in order to

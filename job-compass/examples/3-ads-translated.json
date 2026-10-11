@@ -1,0 +1,123 @@
+{
+  "page": "ads-translated",
+  "title": "Three jobs, translated",
+  "checked": "2026-10-11",
+  "jobs": [
+    {
+      "id": "development",
+      "plain": "Creating new soups and stews for supermarkets",
+      "title": "Development Chef",
+      "employer": "Little Pantry Kitchen",
+      "facts": ["Made-up example ad", "Stockport", "Monday to Friday, office hours", "£32,000 to £36,000"],
+      "short": "Little Pantry Kitchen makes fresh soups for supermarkets. A development chef invents new recipes, tests them in a small kitchen, and then works out how to make the same thing in huge pots. You’d also present new products to the supermarkets’ buyers.",
+      "week": [
+        ["create", "Come up with new soups and stews and cook the first versions"],
+        ["hands", "Turn a 5-litre recipe into one that works in a 2,000-litre pot"],
+        ["write", "Write each recipe down exactly, with what it costs to make"],
+        ["people", "Serve new products to supermarket buyers at tastings"],
+        ["write", "Keep up with food trends and what other brands bring out"],
+        ["hands", "Cook trial batches in the test kitchen"]
+      ],
+      "words": [
+        ["NPD", "New product development: the team that creates new products."],
+        ["customer briefs", "A written request from a supermarket, for example: a spicy lentil soup that sells for under £2."],
+        ["kitchen trials", "Test batches, cooked to see whether a recipe works."],
+        ["scale recipes up", "Change a recipe so it works in much larger amounts. Spices and cooking times rarely just multiply."],
+        ["recipe specifications", "The exact recipe, written so that anyone in the factory makes it the same way."],
+        ["costings", "Working out what one portion costs to make."],
+        ["contract catering", "Cooking for offices, hospitals or schools, for a company that runs their kitchens."],
+        ["allergen labelling", "Listing on the pack which allergens the food contains, as the law requires."]
+      ],
+      "asks": [
+        { "tag": "must", "have": true, "wrote": "A professional cooking background is essential", "signal": "is essential", "why": "Your six years in restaurant kitchens are exactly this." },
+        { "tag": "wish", "wrote": "Degree in Food Science or Culinary Arts preferred", "signal": "preferred", "why": "They would like it, and they will look at people without it." },
+        { "tag": "must", "wrote": "Knowledge of food costing and allergen labelling", "why": "No softening word, so it counts as a must. A food factory does both in more detail than most kitchens." },
+        { "tag": "wish", "wrote": "Experience in food manufacturing would be a bonus", "signal": "would be a bonus", "why": "Nice for them, not needed to apply." },
+        { "tag": "neither", "wrote": "Passion for food and a creative mindset", "why": "Nobody can measure this. It describes the person they imagine." }
+      ],
+      "know": [
+        "Of the three jobs, this one is the closest to cooking.",
+        "Daytime hours, Monday to Friday.",
+        "The team is small: four people."
+      ],
+      "link": "https://example.com/jobs/development-chef"
+    },
+    {
+      "id": "quality",
+      "plain": "Checking that a food factory makes safe food",
+      "title": "Quality Assistant – Food Production",
+      "employer": "Example Foods Ltd",
+      "facts": ["Made-up example ad", "Manchester", "Monday to Friday, 7am to 3:30pm", "£26,500 a year"],
+      "short": "Example Foods makes ready meals for supermarkets. Every day, someone has to check that the food is made safely and that the records prove it. You’d do those checks, take samples, and help find out what went wrong when a customer complains.",
+      "week": [
+        ["check", "Walk the production lines and check that hygiene rules are followed"],
+        ["check", "Check the records the line teams fill in, such as cooking temperatures"],
+        ["data", "Take samples of products and note down the results"],
+        ["write", "Look into customer complaints and write down what went wrong"],
+        ["people", "Explain the quality rules to the people working on the lines"],
+        ["org", "Help get ready for visits from supermarket inspectors"]
+      ],
+      "words": [
+        ["Technical team", "In food factories, the team that looks after safety and quality. It has nothing to do with machines or computers."],
+        ["HACCP", "Hazard Analysis and Critical Control Points: a system for finding the points where food could become unsafe, and checking them."],
+        ["CCP", "Critical control point: one of those points, such as the cooking temperature of a pie."],
+        ["foreign body", "Anything in the food that shouldn’t be there, such as plastic, metal or a hair."],
+        ["root cause analysis", "Finding the real reason something went wrong, not just the first one you see."],
+        ["BRCGS", "A food safety standard that UK supermarkets usually expect their suppliers to meet. Factories are checked against it regularly."]
+      ],
+      "asks": [
+        { "tag": "must", "wrote": "Level 3 Food Safety qualification is essential", "signal": "is essential", "why": "A must. Many chefs have Level 2. Level 3 is a short course, and it is worth asking whether they would pay for it." },
+        { "tag": "must", "have": true, "wrote": "Experience in a food environment (manufacturing, catering or retail) is essential", "signal": "is essential", "why": "Six years in restaurant kitchens counts as catering." },
+        { "tag": "wish", "wrote": "HACCP Level 3 is desirable, or a willingness to complete it", "signal": "is desirable", "why": "A wish, and they offer a way in: being willing to do the course is enough." },
+        { "tag": "must", "wrote": "Good attention to detail and confident using Excel", "why": "No softening word, so a must. Confident here means everyday lists and tables, not complicated formulas." },
+        { "tag": "neither", "wrote": "Excellent communication skills", "why": "Nobody can measure this, so don’t count it against yourself." }
+      ],
+      "know": [
+        "The hours are daytime, Monday to Friday, and the ad says so clearly.",
+        "The factory supplies supermarkets, so their inspectors visit too.",
+        "A free hot meal every shift is included."
+      ],
+      "link": "https://example.com/jobs/quality-assistant"
+    },
+    {
+      "id": "buying",
+      "plain": "Buying fresh fruit and vegetables for a food supplier",
+      "title": "Assistant Buyer – Fresh Produce",
+      "employer": "Harbour & Hill Foodservice",
+      "facts": ["Made-up example ad", "Salford", "3 days a week in the office", "£27,000 to £30,000"],
+      "short": "Harbour & Hill delivers fresh food to restaurants, cafés and schools. Someone has to decide what to buy from farms and traders each day, and at what price. You would help the main buyer do that, and keep an eye on which suppliers are reliable.",
+      "week": [
+        ["org", "Place the day’s orders with farms and traders"],
+        ["data", "Keep track of which suppliers deliver on time and at the right price"],
+        ["data", "Watch how prices change and help argue for better ones"],
+        ["people", "Call suppliers when something goes wrong"],
+        ["check", "Keep product details correct in the ordering system"],
+        ["people", "Work with the warehouse and sales teams"]
+      ],
+      "words": [
+        ["Foodservice", "Selling food to restaurants, cafés, schools and hospitals, rather than to shoppers."],
+        ["fresh produce lines", "Products. Each item they sell, like a box of lemons, is one line."],
+        ["growers and wholesalers", "Farms, and the traders who buy from farms and sell on."],
+        ["sales forecasts", "Estimates of how much will sell next week, based on past weeks."],
+        ["supplier performance", "How reliable a supplier is: on time, good quality, the agreed price."],
+        ["procurement", "Another word for buying, used by bigger companies."],
+        ["seasonality", "Knowing what grows when, and how that changes price and quality."],
+        ["VLOOKUP and pivot tables", "Two Excel features for finding and summing things up in long lists."],
+        ["hybrid", "Some days in the office, some at home."]
+      ],
+      "asks": [
+        { "tag": "must", "wrote": "A strong understanding of fresh produce and seasonality", "why": "No softening word, so a must. This is knowledge about food, not about offices." },
+        { "tag": "must", "wrote": "Strong numeracy and good Excel skills", "why": "A must. In the same line, two Excel features are only “a plus”, so one line holds a must and a wish." },
+        { "tag": "wish", "have": true, "wrote": "Previous buying or procurement experience is an advantage but not required", "signal": "is an advantage but not required", "why": "A wish, and they say so twice. Ordering stock from suppliers in a kitchen is buying on a small scale." },
+        { "tag": "wish", "wrote": "A full UK driving licence would be nice to have", "signal": "would be nice to have", "why": "Only for the odd visit to a supplier." },
+        { "tag": "neither", "wrote": "Ability to manage multiple priorities in a fast-paced environment", "why": "Hard to measure. It means several things happen at once." }
+      ],
+      "know": [
+        "It’s a desk job with lots of calls, three days a week in the office.",
+        "The ad says buying experience is not required, in so many words.",
+        "Free lunch is included."
+      ],
+      "link": "https://example.com/jobs/assistant-buyer"
+    }
+  ]
+}
