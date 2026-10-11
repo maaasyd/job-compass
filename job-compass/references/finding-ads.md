@@ -3,7 +3,7 @@
 ## What to look for
 
 - **Real and open.** Check each ad is still online on the day you build the page. Note the date: it goes into the data as `checked`.
-- **In the kinds of work they liked,** from the quiz or from what they told you.
+- **In the kinds of work they liked,** from the quiz or from what they told you. Search with the search words from the quiz results. When an ad uses a title that isn't on the list but describes the same work, note it: it's a new search word for the hand-off.
 - **Where they can work,** in a language they can read. Stage 3 may include one ad in a second language they know, which is good practice.
 - **At their level.** Entry and junior roles, or roles their stated experience fits. An ad that asks for ten years teaches nothing and stings.
 - **Varied.** Three ads that show different sides: different employers, sizes, or ways of doing the same work.

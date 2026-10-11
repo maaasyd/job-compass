@@ -190,8 +190,15 @@ def check_quiz_page(r, data):
         need_str(r, d, "name", where)
         plain(r, need_str(r, d, "day", where), where + ".day")
         titles = need_list(r, d, "titles", where, 2)
-        if any(not isinstance(t, str) for t in titles):
-            r.err(where, "'titles' must be a list of job titles.")
+        for ti, t in enumerate(titles):
+            tw = "%s.titles[%d]" % (where, ti)
+            if isinstance(t, str) and t.strip():
+                continue
+            if isinstance(t, dict) and isinstance(t.get("title"), str) and t["title"].strip() \
+                    and set(t) <= {"title", "meaning"} and isinstance(t.get("meaning", ""), str):
+                plain(r, t.get("meaning"), tw + ".meaning")
+                continue
+            r.err(tw, "a title is text, or {\"title\": \"…\", \"meaning\": \"…\"}.")
         for k in ("where", "bring", "know"):
             plain(r, need_str(r, d, k, where, optional=True), "%s.%s" % (where, k))
     for i, q in enumerate(data.get("questions") or []):

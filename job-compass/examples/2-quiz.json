@@ -6,7 +6,7 @@
       "id": "safety",
       "name": "Food safety & quality",
       "day": "You check that food is made safely and that the rules are followed. You walk through kitchens or production lines, take samples, keep records and explain what needs to change.",
-      "titles": ["Quality Assistant", "Food Safety Officer", "Technical Assistant (food)", "Hygiene Auditor", "Quality Technician"],
+      "titles": ["Quality Assistant", "Food Safety Officer", { "title": "Technical Assistant (food)", "meaning": "helps the team that looks after food safety and quality, not machines" }, "Hygiene Auditor", "Quality Technician"],
       "where": "Food factories, catering companies, supermarket suppliers and hotel groups.",
       "bring": "Six years in restaurant kitchens, where food safety rules apply every day.",
       "know": "Many of these jobs ask for a higher food safety certificate than kitchen staff need. Some employers pay for the course."
@@ -51,7 +51,7 @@
       "id": "sales",
       "name": "Sales & customer care for food suppliers",
       "day": "You look after restaurants and shops that buy from a food supplier. You visit them, take orders, suggest products and fix problems.",
-      "titles": ["Account Manager (food service)", "Field Sales Representative (food)", "Customer Service Coordinator", "Business Development Chef"],
+      "titles": [{ "title": "Account Manager (food service)", "meaning": "looks after the restaurants and cafés that already buy from a supplier" }, "Field Sales Representative (food)", "Customer Service Coordinator", { "title": "Business Development Chef", "meaning": "a chef who cooks with a supplier’s products to show restaurants what they can do" }],
       "where": "Food wholesalers, drinks companies, equipment suppliers and specialist food producers.",
       "bring": "You’ve been on the other side: you said you order stock and deal with suppliers in your kitchen.",
       "know": "Sales jobs usually come with targets. Customer care jobs look after customers you already have. Check which one an ad really describes."

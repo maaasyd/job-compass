@@ -6,12 +6,19 @@ The quiz can only rank the kinds of work it is given. If the right one is missin
 
 Keep it to a short conversation, five to ten questions at most, asked a few at a time. It is about facts and likes, not ability.
 
+**Confirm, don't assume.** You may know things from memory, earlier conversations or a profile. Those describe the account owner, who is often not the person this is for: in helper mode never, and when testing or helping a friend not either. So don't carry any fact into the intake unasked. If the person is the account owner and you know something useful, say it and ask: "You mentioned you live in X. Is that where you want to work?" Always ask where they want to work. Never fill it in.
+
 Ask about:
 1. **What they did:** school, training, degree, jobs (including small ones), volunteering. Just the facts.
 2. **What they enjoyed** in any of it, or in hobbies. Ask for moments, not traits: "a good day at work", "something you did that you were glad about".
 3. **What they don't want:** shift work, sales targets, a long commute, working alone, sitting all day. These rule things out cleanly.
 4. **Practical limits:** where they can work, languages, hours, whether they can move, how soon they need an income. Only as much as they want to share.
 5. **Anything already on their mind:** a job they've wondered about, something people keep suggesting.
+
+**How to ask.**
+- Open questions for what they did and what they enjoyed. Don't offer ready-made answers there, because those put words in people's mouths.
+- For "what you don't want" and practical limits, short options help: shift work, sales targets, sitting all day, long commute, working alone, and so on. If your environment can show tap-to-answer questions, use it for these, always with room for their own answer. Otherwise list the options in one line.
+- **Always end the intake with: "Anything else you'd like me to know?"** Some of the most useful facts only come out here.
 
 Then say back in two or three lines what you heard, and let them correct it. Use only what they (or their helper) said. Don't fill gaps with guesses about personality or ability.
 
@@ -78,7 +85,12 @@ The copied text lists what they kept, what they crossed out, and an optional not
 
 Each kind of work that goes into the quiz needs, besides `name` and `day`:
 
-- `titles`: 3 to 6 job titles to search for, in the language the ads in their market use. Check that each title returns real results.
+- `titles`: 3 to 6 job titles to search for, in the language the ads in their market use, because that's what they will type into job sites. Check that each title returns real results. Write a title as plain text when it explains itself, or as `{"title": "…", "meaning": "…"}` when it doesn't:
+  - **Always add a meaning when the title is in a different language from the page.** "Fachkraft für Veranstaltungstechnik" needs "event technician, a three-year apprenticeship".
+  - Also add one when a title hides what the job is ("Business Development Chef": a chef who cooks with a supplier's products to show restaurants what they can do).
+  - Keep the meaning short and plain, in the page's language.
+
+  The titles of the top kinds of work become the person's **search words** at the end of the quiz, so choose them with care: they are the main result of step 1.
 - `where`: one sentence on what kinds of employers hire for this.
 - `bring` (optional): what the person already has for this, **only from stated facts**. Name the fact. If nothing stated fits, leave the field out. Don't fill it with flattery.
 - `know` (optional): one useful, true thing, such as pay patterns, shift work, a recent change in the field, or how titles vary. Check anything that could be out of date with a quick search.

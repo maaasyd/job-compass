@@ -302,6 +302,11 @@ textarea.free {
   margin-bottom: 0.25rem;
 }
 .where { color: var(--muted); font-size: 0.93rem; margin-top: 0.45rem; }
+ul.titles { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+ul.titles li { border-left: 3px solid var(--line); padding-left: 0.75rem; display: grid; gap: 0.05rem; }
+ul.titles li span { color: var(--muted); font-size: 0.93rem; }
+.searchbox { background: var(--surface); border: 1.5px solid var(--mark); border-radius: 0.875rem; padding: 1rem; }
+.searchbox ul.chips li { background: var(--bg); }
 
 /* job pages */
 .called, .at { color: var(--muted); font-size: 0.98rem; }

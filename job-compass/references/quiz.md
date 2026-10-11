@@ -61,7 +61,9 @@ See `intake-and-directions.md` for `titles`, `where`, `bring` and `know`. Full e
 
 ## Reading the results
 
-The copied text lists each kind of work with "picked X of Y", the number skipped, and the answer to "Does one of these feel right?".
+The copied text lists each kind of work with "picked X of Y", the number skipped, the **search words** (the titles of the top kind of work, and of any others close behind it, with their meanings), and the answer to "Does one of these feel right?".
+
+The search words are the main result of step 1: what kind of work, and what it's called. Use them to find the ads for stages 2 and 3, and refine them as the person reacts to real ads. The hand-off ends with the final list.
 
 - Talk about the **top two or three**, and about the descriptions more than the numbers. Ask which description felt right when they read it.
 - **Close top two:** common. Many real jobs mix both. Pick ads that combine them in stage 2.

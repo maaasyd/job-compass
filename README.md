@@ -28,7 +28,7 @@ Job Compass doesn't test you or score you. You start with a short quiz about wha
 Claude talks with you briefly about what you've done, what you enjoyed and what you don't want. Then it builds a few short pages that work on a phone:
 
 1. **Kinds of work.** About ten kinds of work, each described as a normal day. You cross out the ones that feel wrong.
-2. **A quiz** made from the ones you kept. It asks only what you'd enjoy, never what you can do. The results show a normal day, job titles to search for, and what you already bring.
+2. **A quiz** made from the ones you kept. It asks only what you'd enjoy, never what you can do. The results show a normal day for each kind of work, what you already bring, and **your search words**: the job titles to type into job sites, each with a plain meaning when the title doesn't explain itself.
 3. **Three real ads, translated.** Each with a plain title, a week of tasks, a word list for the jargon, and the requirements marked as must or wish, with the word that decides it.
 4. **Three new ads, with less help.** You read the original first, open only the words you want explained, guess must or wish, and compare your picture of the job with a plain version.
 

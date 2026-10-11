@@ -32,12 +32,14 @@ Read `references/care-and-limits.md` once per conversation. It says when to stop
 
 | Step | What happens | Read | Page |
 |---|---|---|---|
-| 0. Intake | A short conversation: background, what they enjoyed, what they don't want, practical limits | `references/intake-and-directions.md` | none |
+| 0. Intake | A short conversation: background, what they enjoyed, what they don't want, practical limits, and "anything else?". Confirm, never assume, facts from memory | `references/intake-and-directions.md` | none |
 | 1a. Kinds of work | 8–10 kinds of work, one sentence each. The person crosses out what feels wrong and keeps 5–7 | `references/intake-and-directions.md` | `pick` |
-| 1b. Quiz | A fair quiz built from the kept list. Results show a normal day, titles to search, and what they bring | `references/quiz.md` | `quiz` |
+| 1b. Quiz | A fair quiz built from the kept list. Results show a normal day, job titles with their meanings, what they bring, and the person's search words | `references/quiz.md` | `quiz` |
 | 2. Ads translated | Three real, open ads in plain words: a week of tasks, a word list, musts and wishes marked | `references/finding-ads.md`, `references/ads-translated.md`, `references/signal-words.md` | `ads-translated` |
 | 3. Ads with less help | Three new ads. Read the original first, open only the words needed, guess must or wish, picture the job, then compare | `references/finding-ads.md`, `references/ads-less-help.md`, `references/signal-words.md` | `ads-less-help` |
 | Hand-off | What they like, the search words that follow, and one person to talk to | `references/handoff.md` | none |
+
+Step 1 has a clear goal: the person knows which kinds of work appeal **and what they're called**, so they can search for them. Steps 2 and 3 test those names against real ads and narrow them down.
 
 Each page ends with a "Copy" button. The person pastes the result back to you (or to their helper, who passes it on). Read it before building the next page. It tells you what they kept, picked, skipped and guessed.
 
@@ -52,6 +54,7 @@ Suggest one stage per sitting. A stage takes 10 to 30 minutes, and a break betwe
 ## Helper mode
 
 Sometimes a partner, friend, parent or coach sets this up for someone else. Then:
+- Nothing you know about the account owner from memory or earlier chats applies to the person. Ask for everything.
 - The helper supplies the intake facts. Record what came from them, and use only that in "What you already bring".
 - The person still makes every choice on the pages. The helper's hopes must not pick the kinds of work, so the person crosses out their own list in 1a.
 - The pages work without a Claude account. The helper sends the file or link, and the person sends back the copied text.

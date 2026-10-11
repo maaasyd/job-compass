@@ -104,12 +104,53 @@
       lines.push((n + 1) + '. ' + DIRS[r.key].name + ': ' + (r.offered ? t('quiz.copyPicked', { picked: r.picked, offered: r.offered }) : t('quiz.notRated')));
     });
     if (skipped) lines.push(t('quiz.copySkipped', { n: skipped }));
+    var words = searchWords(rows);
+    if (words.length) {
+      lines.push('');
+      lines.push(t('quiz.copySearch'));
+      words.forEach(function (x) { lines.push('- ' + x.title + (x.meaning ? ' (' + x.meaning + ')' : '')); });
+    }
     lines.push('');
     lines.push(t('quiz.feelQuestion') + ' ' + (state.feel ? t('quiz.feel.' + state.feel) : t('quiz.copyNoAnswer')));
     return lines.join('\n');
   }
 
   function block(label, node) { return h('div', null, h('p', { class: 'lab', text: label }), node); }
+
+  // A title is either "Job Title" or {title, meaning}. The meaning is in the page's language,
+  // for titles in another language or titles that don't explain themselves.
+  function asTitle(x) { return typeof x === 'string' ? { title: x } : x; }
+  function titleList(titles, cls) {
+    var ts = (titles || []).map(asTitle);
+    if (!ts.some(function (x) { return x.meaning; })) {
+      var chips = h('ul', { class: 'chips' });
+      ts.forEach(function (x) { chips.append(h('li', { text: x.title })); });
+      return chips;
+    }
+    var ul = h('ul', { class: 'titles' + (cls ? ' ' + cls : '') });
+    ts.forEach(function (x) {
+      ul.append(h('li', null, h('b', { text: x.title }), x.meaning && h('span', { text: x.meaning })));
+    });
+    return ul;
+  }
+
+  // The kinds of work picked most: the top one, plus up to two more that are close behind it
+  // (within about two picks out of eight). A clear winner gets the box to itself.
+  function topRows(rows) {
+    var picked = rows.filter(function (r) { return r.picked > 0; });
+    if (!picked.length) return [];
+    return picked.filter(function (r) { return picked[0].ratio - r.ratio <= 0.26; }).slice(0, 3);
+  }
+  function searchWords(rows) {
+    var seen = {}, out = [];
+    topRows(rows).forEach(function (r) {
+      (DIRS[r.key].titles || []).map(asTitle).forEach(function (x) {
+        var k = x.title.toLowerCase();
+        if (!seen[k]) { seen[k] = true; out.push(x); }
+      });
+    });
+    return out;
+  }
 
   function renderResults() {
     var rows = score(state.answers);
@@ -128,8 +169,6 @@
     rows.forEach(function (r, n) {
       var d = DIRS[r.key];
       var isTop = n === 0 && r.picked > 0;
-      var chips = h('ul', { class: 'chips' });
-      (d.titles || []).forEach(function (x) { chips.append(h('li', { text: x })); });
       list.append(h('details', { class: 'dir' + (isTop ? ' top' : ''), id: 'dir-' + r.key, open: answered > 0 && n < 3 && r.picked > 0 },
         h('summary', null,
           h('span', { class: 'name' }, isTop && h('span', { class: 'badge', text: t('quiz.mostPicked') }), isTop && h('br'), d.name),
@@ -138,11 +177,19 @@
           h('span', { class: 'bar', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.ratio * 100) + '%' }))),
         h('div', { class: 'body' },
           block(t('quiz.labDay'), h('p', { text: d.day })),
-          block(t('quiz.labTitles'), h('div', null, chips, d.where && h('p', { class: 'where', text: d.where }))),
+          block(t('quiz.labTitles'), h('div', null, titleList(d.titles), d.where && h('p', { class: 'where', text: d.where }))),
           d.bring && block(t('quiz.labBring'), h('p', { text: d.bring })),
           d.know && block(t('quiz.labKnow'), h('p', { text: d.know })))));
     });
     app.append(list);
+
+    var words = searchWords(rows);
+    if (words.length) {
+      app.append(h('section', { class: 'searchbox stack', id: 'search-words' },
+        h('h2', null, h('span', { text: t('quiz.searchTitle') })),
+        h('p', { class: 'hint', text: t('quiz.searchHint') }),
+        titleList(words)));
+    }
 
     // "None of these feels right" is a real answer, not a failure.
     var feelNote = h('p', { class: 'note', hidden: state.feel !== 'no', text: t('quiz.feelNoNote') });
