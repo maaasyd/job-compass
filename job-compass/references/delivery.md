@@ -15,7 +15,7 @@ python3 SKILL/scripts/build_page.py job-compass-work/3-ads.json job-compass-work
 ```
 python3 SKILL/scripts/smoke_test.py job-compass-work/pages/3-ads.html
 ```
-It opens the page at phone width with no network, clicks through to the end, presses Copy, repeats in dark mode, and checks that the "has not started" message appears when scripts are blocked. Exit code 3 means no browser is available. Then open the page yourself, ideally on a phone, before sharing it.
+It opens the page at phone width with no network, clicks through to the end, presses Copy, repeats in dark mode, and checks that the "has not started" message appears when scripts are blocked. Exit code 3 means no browser is available here. Then rely on the build checks, which cover the data, the quiz's fairness and every quote. When you share the page, ask the person to tell you if anything looks wrong or a button doesn't respond.
 
 Rebuild and retest after every change, however small. In the first trial, two bugs reached the person because a page was changed after testing.
 
@@ -25,10 +25,18 @@ Pick what the environment supports:
 - **The file itself** when publishing isn't available, or for someone without Claude. It is one self-contained HTML file. They can open it from email, a chat app or a download. If a chat app's preview shows the "has not started yet" message, they need to open the file in a browser. The message tells them so.
 - **Printing** works for the summaries if someone prefers paper. The copy and navigation buttons are hidden in print.
 
-When sending, add one or two lines in plain words: what the page is, about how long it takes, that nobody is applying to anything, and "When you're done, press Copy and send me what it gives you."
+When sending, add one or two lines in plain words: what the page is, about how long it takes, that nobody is applying to anything, and "When you're done, press Copy and send me what it gives you." For the ad pages, which take longer, add that they can do it in two goes: the page usually remembers where they got to when they open it again in the same browser.
 
 ## Privacy
 Pages can end up at public links. Use "you", not names. Don't include contact details, health details, or anything the person hasn't agreed to put on a page. The ad texts in `ads/` are working files for the quote check. Don't publish them.
 
 ## Page text in other languages
-The page's fixed text lives in `assets/strings/en.json`. To make a page in another language, copy the file (e.g. `de.json`), translate every value, keep the keys and `{placeholders}`, set `meta.lang` and `meta.locale`, and build with `--strings de`. Tell the person the page text was machine-translated and hasn't been checked by a native speaker, unless it has.
+
+The page's fixed text (buttons, hints, the signal-word box) lives in `SKILL/assets/strings/en.json`. Don't write into the skill's folder. For another language:
+
+1. Copy `en.json` into your work folder, e.g. `job-compass-work/strings-de.json`.
+2. Translate every value. Keep the keys and the `{placeholders}`. Set `meta.lang` and `meta.locale` (e.g. `de`, `de-DE`), and use that language's quotation marks for `common.quoteOpen` and `common.quoteClose` (for German „ and “).
+3. Translate the signal words for that language with care, and leave `meta.signalsChecked` as `false` unless a native speaker has checked them. The page then says they're a first draft.
+4. Build with `--strings-file job-compass-work/strings-de.json`. The build refuses a translation that's missing any text.
+
+Tell the person the page text was translated by you and may have small mistakes.

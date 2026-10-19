@@ -7,6 +7,7 @@ Everything the page says in its own voice must be clear to someone outside the f
 - **"You" and verbs.** "You check the numbers" rather than "Responsible for data validation".
 - **Everyday words.** "Use" not "utilise", "help" not "facilitate", "the people involved" not "stakeholders". `assets/jargon.txt` lists the usual offenders, and the checker flags them.
 - **Explain every abbreviation** the first time, or put it in the word list. The checker flags unexplained capitals.
+- **Name the real thing.** When ads use a qualification, licence or system by name (NEBOSH, a CSCS card, SAP), use that name and explain it in a few words. "A well-known safety certificate" protects nobody, because the person will meet the real name in the first ad.
 - **No status talk.** Don't call one kind of work "strategic" or "senior" and another "basic".
 - **No hype and no cheerleading.** "Great news!", "You'd be perfect!" and "Exciting opportunity" all go. A calm, specific sentence is kinder.
 - **Honest about gaps.** "This is the one line where you'd be at the low end." Then add context only if it's true.

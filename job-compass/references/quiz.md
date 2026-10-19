@@ -1,4 +1,4 @@
-# The quiz (stage 1b)
+# The quiz (step 2)
 
 The quiz asks only about preferences. Each question offers four options, and each option belongs to one kind of work. The person picks the one that sounds nicest, or skips.
 
@@ -59,16 +59,20 @@ Then do a review pass: read each question as the person would, and ask "would on
 ```
 See `intake-and-directions.md` for `titles`, `where`, `bring` and `know`. Full example: `examples/2-quiz.json`. Check before building: `python3 scripts/check_quiz.py check quiz.json`.
 
+## Telling the person how long it takes
+
+The page shows "about N minutes" (roughly 0.6 minutes per question: 14 questions is about 8 minutes). Say the same number in your message, so the page and the chat agree.
+
 ## Reading the results
 
 The copied text lists each kind of work with "picked X of Y", the number skipped, the **search words** (the titles of the top kind of work, and of any others close behind it, with their meanings), and the answer to "Does one of these feel right?".
 
-The search words are the main result of step 1: what kind of work, and what it's called. Use them to find the ads for stages 2 and 3, and refine them as the person reacts to real ads. The hand-off ends with the final list.
+The search words are the main result of steps 1 and 2: what kind of work, and what it's called. Use them to find the ads for steps 3 and 4, and refine them as the person reacts to real ads. The hand-off ends with the final list.
 
 - Talk about the **top two or three**, and about the descriptions more than the numbers. Ask which description felt right when they read it.
-- **Close top two:** common. Many real jobs mix both. Pick ads that combine them in stage 2.
+- **Close top two:** common. Many real jobs mix both. Pick ads that combine them in step 3.
 - **Many skips:** the questions didn't land. Ask what was missing rather than reading much into the ranking.
 - **"Partly":** ask which part fits. That usually points to a narrower kind of work.
-- **"Not really":** go back to 1a with new candidates, built from what they picked and skipped. Say plainly that this is useful information.
+- **"Not really":** go back to step 1 with new candidates, built from what they picked and skipped. Say plainly that this is useful information.
 
 Never describe the person through the results ("you're an analytical type"). The results describe kinds of work, not people.

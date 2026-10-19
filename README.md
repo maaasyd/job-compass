@@ -32,7 +32,9 @@ Claude talks with you briefly about what you've done, what you enjoyed and what 
 3. **Three real ads, translated.** Each with a plain title, a week of tasks, a word list for the jargon, and the requirements marked as must or wish, with the word that decides it.
 4. **Three new ads, with less help.** You read the original first, open only the words you want explained, guess must or wish, and compare your picture of the job with a plain version.
 
-At the end you get a short summary: what you liked, the words to search for, and a suggestion to talk to one person who does that work.
+Steps 3 and 4 work best when Claude can read each ad word for word. That needs a browser tool: the built-in browser in the Claude desktop app, or Claude in Chrome. Without one, many job sites can't be read in full. You still get each ad in plain words, but the requirements are marked "probably a must" or "probably a wish", there's no word list, and the page shows you how to spot the deciding word yourself. In step 4, you paste in just the few lines you're unsure about.
+
+At the end you get a short summary: what you liked, the words to search for, and, if you want one, a small next step, such as a video of a normal day in that job or the free careers service where you live.
 
 Each step works on its own. If you already know the kind of work you want and just find ads hard to read, start at step 3.
 
@@ -66,7 +68,7 @@ See [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-s
 
 **Claude Code:** from the top folder of this repository, run `cp -r job-compass ~/.claude/skills/`, so the skill ends up in `~/.claude/skills/job-compass/`.
 
-The scripts need Python 3, with nothing else to install. The browser test uses Playwright if it's there and tells you to check by hand if it isn't. Finding live ads needs web search. Without it, you paste the ads in yourself.
+The scripts need Python 3, with nothing else to install. The browser test uses Playwright if it's there. If it isn't, Claude relies on the build checks and asks you to say if a page looks wrong. Finding live ads needs web search, and reading them word for word works best with a browser tool, as described above. Without web search, Claude can only work with ads you paste in.
 
 ## Using it
 
@@ -81,7 +83,7 @@ Just say what's going on, for example:
 ```
 job-compass/              the skill (this folder is what gets zipped)
   SKILL.md                how Claude runs a session
-  references/             one file per stage, plus care, plain language and signal words
+  references/             one file per step, plus care, plain language and signal words
   assets/                 page shell, styles, shared code, page scripts, page text (strings/en.json)
   scripts/                build, checks (quiz fairness, page data, quotes) and the browser test
   examples/               a made-up person and made-up ads, with the built pages

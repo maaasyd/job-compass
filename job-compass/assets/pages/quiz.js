@@ -1,4 +1,4 @@
-/* Stage 1, step 2: the fair quiz.
+/* Step 2: the fair quiz.
    Every kind of work is offered equally often, and every pair meets equally often
    (scripts/check_quiz.py makes sure). Ranking is "picked X of the Y times it was offered". */
 (function () {
@@ -55,7 +55,7 @@
     app.append(h('header', { class: 'stack' },
       h('p', { class: 'eyebrow', text: t('quiz.eyebrow') }),
       h('h1', { text: t('quiz.title') }),
-      i === 0 && h('p', { class: 'lede', text: t('quiz.lede', { n: Q.length, mins: Math.max(3, Math.round(Q.length / 3)) }) })));
+      i === 0 && h('p', { class: 'lede', text: t('quiz.lede', { n: Q.length, mins: Math.max(5, Math.round(Q.length * 0.6)) }) })));
 
     app.append(JC.trail(t('quiz.count', { i: i + 1, total: Q.length }), Q.length, i, function (n) {
       var x = state.answers[n];
@@ -141,12 +141,14 @@
     if (!picked.length) return [];
     return picked.filter(function (r) { return picked[0].ratio - r.ratio <= 0.26; }).slice(0, 3);
   }
+  // At most three titles per kind of work (the first ones, so put the best search term first)
+  // and eight in all, so the box stays something you can actually use.
   function searchWords(rows) {
     var seen = {}, out = [];
     topRows(rows).forEach(function (r) {
-      (DIRS[r.key].titles || []).map(asTitle).forEach(function (x) {
+      (DIRS[r.key].titles || []).map(asTitle).slice(0, 3).forEach(function (x) {
         var k = x.title.toLowerCase();
-        if (!seen[k]) { seen[k] = true; out.push(x); }
+        if (!seen[k] && out.length < 8) { seen[k] = true; out.push(x); }
       });
     });
     return out;

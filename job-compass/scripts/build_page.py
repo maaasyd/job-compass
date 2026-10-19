@@ -2,7 +2,7 @@
 """Turn a Job Compass data file into one self-contained page.
 
 Usage:
-  build_page.py data.json OUT.html [--ads ADS_DIR] [--strings en]
+  build_page.py data.json OUT.html [--ads ADS_DIR] [--strings-file strings-de.json]
 
 The page type comes from the data file's "page" field: pick, quiz, ads-translated or ads-less-help.
 The script refuses to build when a check fails:
@@ -24,6 +24,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.normpath(os.path.join(HERE, "..", "assets"))
+sys.dont_write_bytecode = True  # never write caches into the skill folder
 sys.path.insert(0, HERE)
 
 import check_page  # noqa: E402
@@ -51,7 +52,33 @@ def needs_ad_text(data):
     return False
 
 
-def build(data, strings_lang="en", ads_dir=None):
+def flat_keys(d, prefix=""):
+    out = set()
+    for k, v in d.items():
+        key = prefix + k
+        if isinstance(v, dict) and not set(v) <= {"one", "other"}:
+            out |= flat_keys(v, key + ".")
+        else:
+            out.add(key)
+    return out
+
+
+def load_strings(strings_lang="en", strings_file=None):
+    """Page text. A translation lives in the work folder and must have every key the English file has."""
+    base = json.loads(read("strings", "en.json"))
+    if not strings_file and strings_lang == "en":
+        return base, []
+    path = strings_file or os.path.join(ASSETS, "strings", strings_lang + ".json")
+    with open(path, encoding="utf-8") as f:
+        tr = json.load(f)
+    missing = sorted(flat_keys(base) - flat_keys(tr))
+    errors = ["strings: %s is missing '%s'. Copy it from assets/strings/en.json and translate it." % (path, k) for k in missing[:10]]
+    if len(missing) > 10:
+        errors.append("strings: ... and %d more missing keys." % (len(missing) - 10))
+    return tr, errors
+
+
+def build(data, strings_lang="en", ads_dir=None, strings_file=None):
     report = check_page.check(data)
     errors, warnings = list(report.errors), list(report.warnings)
 
@@ -64,13 +91,17 @@ def build(data, strings_lang="en", ads_dir=None):
             errors.append("quotes: this page quotes the ads or explains their words, but no ad texts were given. "
                           "Pass --ads with one <job id>.txt per ad. If you cannot get an ad's own words, mark that "
                           "job \"unchecked\": true and use rewordings only (see references/finding-ads.md).")
+    strings, s_errors = load_strings(strings_lang, strings_file)
+    errors += s_errors
+    if strings.get("meta", {}).get("lang", "en") != "en" and strings.get("meta", {}).get("signalsChecked") is not False:
+        warnings.append("strings: signal words for '%s' are marked as checked. Set meta.signalsChecked to false "
+                        "unless a native speaker has checked them." % strings["meta"].get("lang"))
     if errors:
         return None, errors, warnings
 
     data = dict(data)
     if not data.get("pageId"):
         data["pageId"] = hashlib.sha1(json.dumps(data, sort_keys=True).encode("utf-8")).hexdigest()[:10]
-    strings = json.loads(read("strings", strings_lang + ".json"))
 
     parts = {
         "TITLE": html.escape(data["title"]),
@@ -96,11 +127,12 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--ads", help="folder with one <job id>.txt per ad (needed for pages that quote ads)")
     ap.add_argument("--strings", default="en", help="page language file in assets/strings (default: en)")
+    ap.add_argument("--strings-file", help="a translated page text file in your work folder, e.g. job-compass-work/strings-de.json")
     a = ap.parse_args()
 
     with open(a.data, encoding="utf-8") as f:
         data = json.load(f)
-    out, errors, warnings = build(data, a.strings, a.ads)
+    out, errors, warnings = build(data, a.strings, a.ads, a.strings_file)
     for w in warnings:
         print("warning: " + w)
     for e in errors:

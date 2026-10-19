@@ -1,4 +1,4 @@
-/* Stage 2: three real ads, translated.
+/* Step 3: three real ads, translated.
    Each job gets a plain title, a short picture, a week of tasks (pick up to three),
    a word list, and the requirements with must / wish marked and the signal word named. */
 (function () {
@@ -6,6 +6,9 @@
   var t = JC.t, h = JC.h, D = JC.DATA;
   var JOBS = D.jobs;
   var MAX = D.pickMax || 3;
+  // The invitation to look for the deciding word in the original ad is shown once, on the first job it fits.
+  var FIRST_FIND = -1;
+  JOBS.some(function (j, n) { if (j.unchecked && j.link) { FIRST_FIND = n; return true; } return false; });
 
   function fresh() {
     var s = { pos: 0, picks: {}, react: {} };
@@ -40,14 +43,16 @@
     return h('details', { class: 'signalbox', open: open },
       h('summary', null, h('b', { text: t('signals.title') })),
       h('p', { class: 'hint', text: t('signals.intro') }),
-      list);
+      list,
+      JC.get('meta.signalsChecked') === false && h('p', { class: 'hint', text: t('signals.uncheckedNote') }));
   }
 
   function renderJob() {
     var i = state.pos, job = JOBS[i];
 
     if (i === 0) {
-      app.append(h('div', { class: 'rule' }, h('strong', { text: t('common.nobodyApplying') }), t('ads1.ruleText')));
+      app.append(h('div', { class: 'rule' }, h('strong', { text: t('common.nobodyApplying') }),
+        JOBS.every(function (j) { return j.words && j.words.length; }) ? t('ads1.ruleText') : t('ads1.ruleTextNoWords')));
     }
     app.append(JC.trail(t('common.jobCount', { i: i + 1, total: JOBS.length }), JOBS.length, i, function (n) {
       return state.react[JOBS[n].id] ? 'done' : '';
@@ -76,13 +81,14 @@
     job.asks.forEach(function (a) {
       asks.append(h('li', { class: a.have ? 'have' : null },
         h('div', { class: 'row start' },
-          h('span', { class: 'tag ' + a.tag, text: t('tags.' + a.tag) }),
+          h('span', { class: 'tag ' + a.tag, text: job.unchecked ? t('tagsProbably.' + a.tag) : t('tags.' + a.tag) }),
           a.have && h('span', { class: 'tag have', text: t('tags.have') })),
-        a.wrote ? h('p', { class: 'wrote', text: '“' + a.wrote + '”' }) : h('p', { text: a.text }),
-        a.signal ? h('p', { class: 'signal' }, t('ads1.signalPre'), h('b', { text: '“' + a.signal + '”' })) : null,
+        a.wrote ? h('p', { class: 'wrote', text: JC.q(a.wrote) }) : h('p', { text: a.text }),
+        a.signal ? h('p', { class: 'signal' }, t('ads1.signalPre'), h('b', { text: JC.q(a.signal) })) : null,
         h('p', { class: 'why', text: a.why })));
     });
-    app.append(JC.section(t('ads1.asksTitle'), t('ads1.asksHint'), signalBox(i === 0), asks));
+    app.append(JC.section(t('ads1.asksTitle'), job.unchecked ? t('ads1.asksHintUnchecked') : t('ads1.asksHint'), signalBox(i === 0), asks,
+      job.unchecked && job.link && i === FIRST_FIND && h('p', { class: 'note', text: t('ads1.findWordPrompt') })));
 
     var know = h('ul', { class: 'know' });
     job.know.forEach(function (k) { know.append(h('li', { text: k })); });
@@ -119,7 +125,8 @@
     });
     lines.push('');
     lines.push(t('common.copyKinds'));
-    tl.kinds.forEach(function (k) { lines.push('- ' + t('kinds.' + k) + ': ' + (tl.counts[k] || 0)); });
+    tl.kinds.slice().sort(function (a, b) { return (tl.counts[b] || 0) - (tl.counts[a] || 0); })
+      .forEach(function (k) { lines.push('- ' + t('kinds.' + k) + ': ' + (tl.counts[k] || 0)); });
     if (tl.picked.length) {
       lines.push('');
       lines.push(t('common.copyPicked'));
@@ -131,6 +138,7 @@
   function renderSummary() {
     var tl = tally();
     var anyYes = JOBS.some(function (j) { return state.react[j.id] === 'yes'; });
+    var likedHaveWords = JOBS.some(function (j) { return state.react[j.id] === 'yes' && j.words && j.words.length; });
 
     app.append(h('header', { class: 'stack' },
       h('p', { class: 'eyebrow', text: t('ads1.summaryEyebrow') }),
@@ -158,7 +166,7 @@
       app.append(JC.section(t('common.pickedTitle'), null, picked));
     }
 
-    app.append(JC.section(t('common.nextStepTitle'), null, h('p', { text: anyYes ? t('ads1.nextYes') : t('ads1.nextNone') })));
+    app.append(JC.section(t('common.nextStepTitle'), null, h('p', { text: anyYes ? (likedHaveWords ? t('ads1.nextYes') : t('ads1.nextYesNoWords')) : t('ads1.nextNone') })));
 
     app.append(JC.copyPanel({
       copyLabel: t('common.copyWhatIThought'),

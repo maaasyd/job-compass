@@ -1,4 +1,4 @@
-/* Stage 3: three new ads, with less help.
+/* Step 4: three new ads, with less help.
    Per job: 1 read the real ad, 2 open only the words you want explained,
    3 guess must or wish for three quoted lines, 4 picture the job, then compare with a plain version. */
 (function () {
@@ -85,12 +85,12 @@
       if (isOpen) box.append(h('p', { class: 'mean', text: w[1] }));
       words.append(box);
     });
-    app.append(JC.step(2, t('ads2.wordsTitle'), t('ads2.wordsHint'), words));
+    app.append(job.words.length ? JC.step(2, t('ads2.wordsTitle'), t('ads2.wordsHint'), words) : JC.step(2, t('ads2.wordsTitle'), t('ads2.noWords')));
 
     // 3 must or wish
     var lines = h('div', { class: 'lines' });
     job.lines.forEach(function (ln, n) {
-      var card = h('div', { class: 'linecard' }, h('p', { class: 'wrote', text: '“' + ln.wrote + '”' }));
+      var card = h('div', { class: 'linecard' }, h('p', { class: 'wrote', text: JC.q(ln.wrote) }));
       var pick = h('div', { class: 'pick' });
       var fb = h('div', { class: 'fb', hidden: state.guess[job.id][n] === null });
       function fill() {
@@ -98,7 +98,7 @@
         fb.textContent = '';
         if (g === null) return;
         fb.append(h('b', { text: g === ln.is ? t('ads2.same.' + ln.is) : t('ads2.means.' + ln.is) }),
-          ln.signal ? h('span', null, t('ads1.signalPre'), h('b', { style: 'display:inline', text: '“' + ln.signal + '”' }), '. ') : null,
+          ln.signal ? h('span', null, t('ads1.signalPre'), h('b', { style: 'display:inline', text: JC.q(ln.signal) }), '. ') : '',
           ln.why);
       }
       GUESS.forEach(function (g) {
@@ -189,7 +189,8 @@
     });
     lines.push('');
     lines.push(t('common.copyKinds'));
-    r.kinds.forEach(function (k) { lines.push('- ' + t('kinds.' + k) + ': ' + (r.counts[k] || 0)); });
+    r.kinds.slice().sort(function (a, b) { return (r.counts[b] || 0) - (r.counts[a] || 0); })
+      .forEach(function (k) { lines.push('- ' + t('kinds.' + k) + ': ' + (r.counts[k] || 0)); });
     if (r.picked.length) {
       lines.push('');
       lines.push(t('common.copyPicked'));
@@ -226,7 +227,8 @@
     app.append(JC.section(t('ads2.linesSummaryTitle'), null,
       r.matched > 0 && r.matched / r.linesAll >= 0.75 && h('p', { text: t('ads2.linesMatched', { n: r.matched, total: r.linesAll }) }),
       h('p', { text: t('ads2.signalsLead') }),
-      signals));
+      signals,
+      JC.get('meta.signalsChecked') === false && h('p', { class: 'hint', text: t('signals.uncheckedNote') })));
 
     if (!r.picked.length) {
       app.append(JC.section(t('common.kindsTitle'), null, h('p', { text: t('common.noPicks') })));

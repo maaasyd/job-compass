@@ -128,6 +128,9 @@ def check_unchecked(r, job, where, allowed=True):
         return
     if any(a.get("wrote") for a in job.get("asks") or []):
         r.err(where, "an unchecked ad can't have quotes ('wrote'). Use rewordings ('text').")
+    if any(a.get("signal") for a in job.get("asks") or []):
+        r.err(where, "an unchecked ad can't name signal words, because you haven't seen its exact wording. "
+                     "Leave 'signal' out; the page shows 'Probably a must / wish' and asks the person to look.")
     if job.get("words"):
         r.err(where, "an unchecked ad can't have a word list, because the terms can't be checked.")
 
@@ -181,6 +184,7 @@ def check_pick(r, data):
 
 
 def check_quiz_page(r, data):
+    sys.dont_write_bytecode = True  # never write caches into the skill folder
     sys.path.insert(0, HERE)
     import check_quiz
     dirs = need_list(r, data, "directions", "directions", 5)
@@ -280,7 +284,8 @@ def check_ads_less_help(r, data):
         check_link(r, job, where)
         check_unchecked(r, job, where, allowed=False)
         check_week(r, job, where)
-        check_words(r, job, where)
+        if not check_words(r, job, where, 0):
+            r.warn(where, "no word list. Fine when the person pasted only a few lines without insider words.")
         lines = need_list(r, job, "lines", where, 1)
         if len(lines) != 3:
             r.warn(where, "use three must-or-wish lines per ad.")

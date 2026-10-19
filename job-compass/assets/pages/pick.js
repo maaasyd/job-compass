@@ -1,4 +1,4 @@
-/* Stage 1, step 1: kinds of work to keep or cross out.
+/* Step 1: kinds of work to keep or cross out.
    The person sees 8 to 10 kinds of work, each as one sentence about a normal day,
    and crosses out the ones that feel wrong. The quiz is then written for the ones they keep. */
 (function () {

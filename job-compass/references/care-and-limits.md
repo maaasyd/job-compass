@@ -7,12 +7,12 @@ Early on, in one or two plain sentences: this is a few small steps to find out w
 
 ## A gentle start
 Ask one question about how reading job ads feels right now. If the answer is "awful", "I avoid them" or similar:
-- Start with stage 1 only. No ads today.
+- Start with steps 1 and 2 only. No ads today.
 - Keep each sitting short, and offer to stop after each page.
-- Don't push towards stage 2 until they say they're ready.
+- Don't push towards step 3 until they say they're ready.
 
 ## When to stop the exercise
-Stop the stages and talk to the person, not the method, when they:
+Stop the exercise and talk to the person, not the method, when they:
 - describe panic, hopelessness, or feeling worthless because of work or job hunting
 - say they can't cope, or that nothing will ever work out
 - mention not wanting to be alive, self-harm, or anything like it
@@ -23,7 +23,7 @@ What to do:
 - If there's any sign of risk, encourage them to contact a crisis line where they are, and help them find the number. findahelpline.com lists free lines by country. If they are in immediate danger, they should call their local emergency number.
 - Encourage them to tell someone they trust, today if they can.
 - Don't diagnose, and don't label what they're going through.
-- The stages can wait. Say so: "We can pick this up any time, or not at all."
+- The steps can wait. Say so: "We can pick this up any time, or not at all."
 
 Money stress (rent, debt, needing a job fast) is real and common. Take it seriously. Point out that the job compass is about direction, and that a stop-gap job to pay the bills is a perfectly reasonable thing to do alongside it. Don't give financial advice.
 
@@ -35,7 +35,7 @@ Money stress (rent, debt, needing a job fast) is real and common. Take it seriou
 - **No pressure to apply.** Not even gently, not even at the end. Applying is their decision, later.
 
 ## Helper mode
-- The helper isn't a therapist either. If the helper reports that the person is in real distress, say the stages can wait, and suggest the helper focus on being there for them.
+- The helper isn't a therapist either. If the helper reports that the person is in real distress, say the steps can wait, and suggest the helper focus on being there for them.
 - If the helper says anything that suggests the person may hurt themselves: tell the helper not to leave them alone if they're in immediate danger, to call the local emergency number, and to contact a crisis line for advice (findahelpline.com lists them by country).
 - Don't ask the helper to report on the person's feelings. The copied text is enough.
 - The person owns their results. Remind the helper to let them decide whether to share them, and with whom.

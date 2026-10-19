@@ -8,12 +8,14 @@ For each page it checks, at phone width (390 px):
   - the page starts (the "has not started yet" message is gone) and shows no script errors
   - nothing is wider than the screen
   - a full walk-through works: every button on the way to the summary, then "Copy"
+  - no broken text such as 'null' or 'undefined' shows up on the way
   - the same in dark mode
   - with scripts switched off, the "has not started yet" message is shown instead of a blank page
 With --screens it saves screenshots of the start and the end of each page.
 
 Needs Playwright for Python with a Chromium browser. If that is missing, the script says so
-and exits with code 3: then open each page yourself in a browser, on a phone if you can.
+and exits with code 3: then rely on the build checks, and ask the person to say if anything
+on a page looks wrong (see references/delivery.md).
 """
 import os
 import sys
@@ -21,7 +23,7 @@ import sys
 try:
     from playwright.sync_api import sync_playwright
 except Exception:  # pragma: no cover
-    print("skipped: Playwright is not installed here. Open each page in a browser yourself before sharing it.")
+    print("skipped: Playwright is not installed here, so the pages were not clicked through. Rely on the build checks, and ask the person to tell you if anything on a page looks wrong.")
     sys.exit(3)
 
 PHONE = {"width": 390, "height": 844}
@@ -35,12 +37,26 @@ def launch(p):
     try:
         return p.chromium.launch(executable_path=exe) if exe else p.chromium.launch()
     except Exception as e:
-        print("skipped: could not start a headless browser (%s). Open each page yourself before sharing it." % e)
+        print("skipped: could not start a headless browser (%s). Rely on the build checks, and ask the person to tell you if anything on a page looks wrong." % e)
         sys.exit(3)
 
 
 def no_overflow(page):
     return page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
+
+
+# Text that only appears when code puts a missing value on the page (for example "nullNo softening word").
+LEAK_JS = r"""() => {
+  const t = (document.getElementById('app') || document.body).innerText;
+  const m = t.match(/null(?=[A-ZÄÖÜ„“"])|\bundefined\b|\bNaN\b|\[object Object\]/);
+  return m ? t.slice(Math.max(0, m.index - 30), m.index + 40).replace(/\s+/g, ' ') : '';
+}"""
+
+
+def no_leaks(page, where):
+    leak = page.evaluate(LEAK_JS)
+    if leak:
+        raise AssertionError("broken text on the page (%s): ...%s..." % (where, leak))
 
 
 def walk(page):
@@ -65,9 +81,11 @@ def walk(page):
         total = page.evaluate("window.JC_DATA.jobs.length")
         for i in range(total):
             if kind == "ads-less-help":
-                page.locator(".word button").first.click()
+                if page.locator(".word button").count():
+                    page.locator(".word button").first.click()
                 for btn in page.locator(".linecard .pick button:first-child").all():
                     btn.click()
+                no_leaks(page, "must-or-wish answers")
                 page.locator("button[id^=show-]").click()
             tasks = page.locator(".task")
             for k in range(min(4, tasks.count())):
@@ -76,10 +94,12 @@ def walk(page):
             if picked > 3:
                 raise AssertionError("more than three tasks could be picked")
             page.locator(".react button").first.click()
+            no_leaks(page, "job %d" % (i + 1))
             page.click("#btn-next")
         page.wait_for_selector(".sum")
     else:
         raise AssertionError("unknown page type %r" % kind)
+    no_leaks(page, "the end of the page")
     page.click("#btn-copy")
     page.wait_for_function("document.getElementById('copy-status').textContent.length > 0")
     copied = page.evaluate("document.getElementById('copy-fallback').value")

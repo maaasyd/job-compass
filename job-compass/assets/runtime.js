@@ -28,6 +28,9 @@ var JC = (function () {
     });
   }
 
+  // Quotation marks come from the page text, so a translation can use its own („…“ in German).
+  function q(s) { return t('common.quoteOpen') + s + t('common.quoteClose'); }
+
   function niceDate(iso) {
     if (!iso) return '';
     var d = new Date(iso + 'T12:00:00Z');
@@ -220,7 +223,7 @@ var JC = (function () {
   }
 
   return {
-    DATA: DATA, t: t, h: h, section: section, step: step, focusTitle: focusTitle, store: store,
+    DATA: DATA, t: t, q: q, get: lookup, h: h, section: section, step: step, focusTitle: focusTitle, store: store,
     isIndexList: isIndexList, trail: trail, picker: picker, reactions: reactions, copyPanel: copyPanel,
     bars: bars, header: header, niceDate: niceDate, boot: boot
   };
