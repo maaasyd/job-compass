@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="generator" content="Job Compass">
+<title>Kinds of work quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap">
+<style>
+/* Job Compass pages: one narrow reading column, readable on a phone.
+   Shared by all four templates. Colours are tokens so dark mode is one block. */
+:root {
+  --bg: #EEF3EF;
+  --surface: #FBFDFB;
+  --ink: #17302A;
+  --muted: #566B64;
+  --line: #CBD7D1;
+  --accent: #0E6B5A;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #D9ECE6;
+  --mark: #F0C35A;
+  --mark-ink: #3A2A00;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1715;
+    --surface: #17221F;
+    --ink: #E4EEE9;
+    --muted: #9BB0A8;
+    --line: #2B3A35;
+    --accent: #58C7AE;
+    --accent-ink: #06231D;
+    --accent-soft: #1D3A33;
+    --mark: #E3B04B;
+    --mark-ink: #2A1E00;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1715;
+  --surface: #17221F;
+  --ink: #E4EEE9;
+  --muted: #9BB0A8;
+  --line: #2B3A35;
+  --accent: #58C7AE;
+  --accent-ink: #06231D;
+  --accent-soft: #1D3A33;
+  --mark: #E3B04B;
+  --mark-ink: #2A1E00;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+
+.wrap {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+@media (min-width: 480px) { .wrap { padding-inline: 1.25rem; } }
+.wrap p, .wrap h1, .wrap h2, .wrap ul, .wrap ol, .wrap dl, .wrap dd { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 0.6rem; }
+.waiting { color: var(--muted); }
+
+/* headings */
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 5.8vw, 2.25rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 4.4vw, 1.4rem);
+  line-height: 1.2;
+  text-wrap: balance;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+h1:focus, h2:focus { outline: none; }
+h2 .num {
+  flex: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+.lede { color: var(--muted); max-width: 34rem; }
+.hint { color: var(--muted); font-size: 0.95rem; }
+.fine { color: var(--muted); font-size: 0.9rem; }
+.note {
+  background: var(--accent-soft);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.98rem;
+}
+.rule { background: var(--accent-soft); border-radius: 0.75rem; padding: 0.9rem 1rem; }
+.rule strong { display: block; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* progress */
+.count { font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.trail { display: grid; gap: 4px; }
+.seg { height: 6px; border-radius: 3px; background: var(--line); }
+.seg.done { background: var(--accent); }
+.seg.skip { background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px); }
+.seg.now { background: var(--ink); }
+
+/* buttons */
+.btn, a.btn {
+  font: inherit;
+  font-weight: 700;
+  border-radius: 0.65rem;
+  padding: 0.7rem 1.1rem;
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.btn.quiet { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.quiet:hover { border-color: var(--accent); }
+.btn.quiet[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.btn.small { padding: 0.45rem 0.85rem; font-size: 0.95rem; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 0.625rem; justify-content: space-between; align-items: center; }
+.row.start { justify-content: flex-start; }
+
+/* chips */
+.facts, .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.facts li, .chips li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.93rem;
+  background: var(--surface);
+}
+
+/* choice cards: quiz options, tasks, kinds of work */
+.opts, .tasks, .cands { display: grid; gap: 0.55rem; }
+.opt, .task {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  cursor: pointer;
+}
+.opt:hover, .task:hover { border-color: var(--accent); }
+.opt[aria-pressed="true"], .task[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.task[aria-disabled="true"] { opacity: 0.55; cursor: default; }
+.task[aria-disabled="true"]:hover { border-color: var(--line); }
+.opt .dot {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+}
+.opt[aria-pressed="true"] .dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px var(--accent-soft);
+}
+.task .box {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.18rem;
+  border-radius: 0.3rem;
+  border: 1.5px solid var(--muted);
+  position: relative;
+}
+.task[aria-pressed="true"] .box { border-color: var(--accent); background: var(--accent); }
+.task[aria-pressed="true"] .box::after {
+  content: "";
+  position: absolute;
+  left: 0.32rem;
+  top: 0.08rem;
+  width: 0.32rem;
+  height: 0.62rem;
+  border-right: 2px solid var(--accent-ink);
+  border-bottom: 2px solid var(--accent-ink);
+  transform: rotate(45deg);
+}
+.opt .txt, .task .txt { min-width: 0; }
+
+/* kinds of work to keep or cross out */
+.cand {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.8rem;
+  padding: 0.9rem 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.cand .name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+.cand.out { background: transparent; border-style: dashed; }
+.cand.out .name, .cand.out .day { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.cand .row { justify-content: flex-start; }
+.tally { font-variant-numeric: tabular-nums; }
+textarea.free {
+  width: 100%;
+  min-height: 5.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.8rem;
+}
+
+/* quiz results */
+.dirs { display: grid; gap: 0.75rem; }
+.dir { background: var(--surface); border: 1.5px solid var(--line); border-radius: 0.875rem; }
+.dir.top { border-color: var(--mark); }
+.dir summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  border-radius: 0.8rem;
+}
+.dir summary::-webkit-details-marker { display: none; }
+.dir .name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; line-height: 1.2; min-width: 0; }
+.badge {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  background: var(--mark);
+  color: var(--mark-ink);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 0.35rem;
+  padding: 0.12rem 0.45rem;
+}
+.dir .score { font-size: 0.9rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dir .chev {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  margin: 0 0.2rem 0.2rem;
+  transition: transform 0.15s;
+}
+.dir[open] .chev { transform: rotate(-135deg); margin-bottom: -0.2rem; }
+.bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 4px; background: var(--accent); }
+.dir .bar { grid-column: 1 / -1; }
+.dir .body { display: grid; gap: 0.95rem; padding: 1rem; border-top: 1px solid var(--line); }
+.lab {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+.where { color: var(--muted); font-size: 0.93rem; margin-top: 0.45rem; }
+ul.titles { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+ul.titles li { border-left: 3px solid var(--line); padding-left: 0.75rem; display: grid; gap: 0.05rem; }
+ul.titles li span { color: var(--muted); font-size: 0.93rem; }
+.searchbox { background: var(--surface); border: 1.5px solid var(--mark); border-radius: 0.875rem; padding: 1rem; }
+.searchbox ul.chips li { background: var(--bg); }
+
+/* job pages */
+.called, .at { color: var(--muted); font-size: 0.98rem; }
+.called b { color: var(--ink); }
+.short { border-left: 3px solid var(--mark); padding-left: 0.85rem; }
+.know { padding-left: 1.15rem; display: grid; gap: 0.4rem; }
+.sub { font-weight: 700; }
+.plain { display: grid; gap: 1.1rem; }
+
+dl.words { display: grid; gap: 0.75rem; }
+dl.words div { border-left: 3px solid var(--line); padding-left: 0.85rem; }
+dl.words dt { font-weight: 700; }
+
+.signals { display: grid; gap: 0.6rem; }
+.signals div { border-left: 3px solid var(--line); padding-left: 0.85rem; }
+.signals b { display: block; }
+.signalbox { background: var(--surface); border: 1.5px solid var(--line); border-radius: 0.75rem; padding: 0.9rem 1rem; display: grid; gap: 0.6rem; }
+
+.asks { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.asks li {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.asks li.have { border-color: var(--mark); }
+.tag {
+  justify-self: start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 0.35rem;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.tag.have { background: var(--mark); color: var(--mark-ink); border-color: var(--mark); }
+.tag.must { color: var(--ink); border-color: var(--ink); }
+.wrote { font-style: italic; }
+.asks .why { color: var(--muted); font-size: 0.97rem; }
+.signal { font-size: 0.93rem; }
+.signal b { font-style: normal; }
+
+/* explain-on-tap words */
+div.words { display: grid; gap: 0.5rem; }
+.word { background: var(--surface); border: 1.5px solid var(--line); border-radius: 0.75rem; }
+.word.open { border-color: var(--accent); }
+.word button {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  text-align: left;
+  font: inherit;
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.95rem;
+  cursor: pointer;
+}
+.word button .q { flex: none; color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+.word.open button { cursor: default; }
+.word.open button .q { display: none; }
+.word .mean { padding: 0 0.95rem 0.8rem; }
+
+/* must or wish */
+.lines { display: grid; gap: 0.75rem; }
+.linecard {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.85rem 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.linecard .pick { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.linecard .fb { border-top: 1px solid var(--line); padding-top: 0.6rem; }
+.linecard .fb b { display: block; }
+
+.react { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.react .btn { flex: 1 1 9rem; }
+
+/* summaries */
+.sum { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+.sum li {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.8rem 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.75rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.sum .what { font-weight: 700; min-width: 0; flex: 1 1 14rem; }
+.sum .said { color: var(--muted); white-space: nowrap; }
+.sum li.yes { border-color: var(--mark); }
+.sum li.yes .said { color: var(--ink); font-weight: 700; }
+.kinds { display: grid; gap: 0.65rem; }
+.kind { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.3rem 0.75rem; align-items: baseline; }
+.kind .n { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.kind .bar { grid-column: 1 / -1; }
+.picked { padding-left: 1.15rem; display: grid; gap: 0.3rem; }
+
+#copy-fallback {
+  width: 100%;
+  min-height: 11rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+}
+@media (prefers-reduced-motion: reduce) { .dir .chev { transition: none; } }
+@media print {
+  .row, .react, #copy-fallback { display: none !important; }
+  .dir .body { display: grid !important; }
+}
+
+</style>
+</head>
+<body>
+<main class="wrap" id="app"><p class="waiting">This page has not started yet. If you still see this message after a few seconds, you are probably looking at a preview that blocks scripts. Save the file to your computer or phone and open it in a browser such as Chrome, Firefox or Safari.</p></main>
+<script>window.JC_STRINGS = {"meta":{"lang":"en","locale":"en-GB","signalsChecked":true},"common":{"quoteOpen":"“","quoteClose":"”","waiting":"This page has not started yet. If you still see this message after a few seconds, you are probably looking at a preview that blocks scripts. Save the file to your computer or phone and open it in a browser such as Chrome, Firefox or Safari.","back":"Back","next":"Next","nextJob":"Next job","seeWhatIThought":"See what I thought","pickHint":"Pick up to {max} that sound best to you.","pickFull":"That's {max}. To pick a different one, untick one first.","react":{"yes":"I’d like this","maybe":"Not sure","no":"No thanks"},"reactTitle":"How does this job sound?","reactHint":"Go with your first feeling about the work itself.","copyFallbackLabel":"Your answers as text","resetYes":"Yes, clear them","resetNo":"Keep them","copyBlocked":"Copying is blocked here. The text is selected below, so you can copy it yourself.","copied":"Copied. Now paste it into the chat with Claude, or into a message to whoever sent you this page, and send it.","startAgain":"Start again","copyHeader":"Job Compass: {page}","jobCount":"Job {i} of {total}","nobodyApplying":"Nobody is applying to anything today.","noAnswer":"no answer","noAnswerYet":"No answer yet","copyKinds":"Tasks I picked, by kind:","copyPicked":"The tasks I picked:","whatYouThought":"What you thought","kindsTitle":"The kind of work you picked","kindsHint":"Counted across all the jobs.","noPicks":"You didn’t pick any tasks. That’s fine. Your reactions to the jobs already say something.","tasksN":{"one":"{n} task","other":"{n} tasks"},"pickedTitle":"The tasks you picked","nextStepTitle":"One small next step","copyWhatIThought":"Copy what I thought","lookAgain":"Look at the jobs again","resetJobsQuestion":"Clear everything you picked on this page?","adsFooter":"The ads were open on {date} and may have closed since. The plain-language parts are a rewording, so the original ad is always the reference. Your answers stay on this phone or computer."},"pick":{"eyebrow":"Kinds of work","title":"Which of these could you picture?","lede":"Here are {n} kinds of work that could suit you. Cross out the ones that feel wrong, until between {min} and {max} are left. Nothing here tests what you can do, so go by what sounds good. You can change your mind at any time.","crossOut":"Not for me","bringBack":"Bring it back","tally":"You’re keeping {n} of {total}.","tooMany":{"one":"The quiz can compare up to {max}. Cross out 1 more, the one you’re least curious about.","other":"The quiz can compare up to {max}. Cross out {n} more, the ones you’re least curious about."},"tooFew":"Fewer than {min} feel possible. That’s useful to know too. Send your list anyway, and you’ll get some new ones based on what you crossed out.","fine":"That works. Copy your list and send it back, and the quiz will be made from the ones you kept.","noteTitle":"Anything to add?","noteHint":"A kind of work that’s missing, or a reason one felt wrong. Only if you want to.","noteLabel":"Anything to add","copy":"Copy my list","copyName":"kinds of work","copyKept":"Keeping ({n}):","copyOut":"Crossed out ({n}):","copyNone":"none","copyNote":"Something to add:","resetQuestion":"Bring back everything you crossed out?","footer":"Your choices stay on this phone or computer."},"quiz":{"eyebrow":"Quiz","title":"Which kind of work would you like?","lede":"{n} quick choices, about {mins} minutes. Nothing here tests what you can do, and there are no right answers. Pick what sounds nicest, even if you think you couldn’t do it yet. Skip any question where nothing fits.","count":"Question {i} of {total}","skip":"Skip this one","resultsTitle":"Your kinds of work","resultsLede":"Sorted by how often you picked each one when it was offered. Read the top ones and notice which description feels right. That feeling counts for more than the number.","noneAnswered":"You skipped every question, so there is nothing to sort yet. You can still open each one below and read what the work is like.","fewAnswered":"You answered {n} of {total} questions, so treat this as a rough hint. Opening the descriptions and reading them will tell you more.","closeTop":"Your top two are close together. That’s common, and many real jobs mix both.","mostPicked":"Most picked","score":"{picked} of {offered}","notRated":"not rated","labDay":"A normal day","labTitles":"Job titles to search for","labBring":"What you already bring","labKnow":"Good to know","feelQuestion":"Does one of these feel right?","feelHint":"There’s no wrong answer here either.","feel":{"yes":"Yes","partly":"Partly","no":"Not really"},"feelNoNote":"That’s useful to know, not a failure. Copy your results and send them. The next set of kinds of work will be built from what you picked and what you skipped.","searchTitle":"Your search words","searchHint":"These are what the jobs are called, and the words that find them in job ads. They come from what you picked most. You don’t have to search now: the next step uses them to pick a few ads for you.","copySearch":"Search words:","copy":"Copy my results","review":"Look at my answers again","resetQuestion":"Clear all {n} answers?","copyName":"quiz results","copyPicked":"picked {picked} of {offered}","copySkipped":"Skipped questions: {n}","copyNoAnswer":"no answer","footer":"This is a starting point for a conversation, built from {n} questions about what you like. It is not a psychological test, and it says nothing about what you are able to do. Your answers stay on this phone or computer."},"signals":{"title":"How to tell a must from a wish","intro":"Ads mix fixed requirements with things they’d simply like. A few small words tell you which is which.","wish":{"label":"A wish","words":"“is a plus”, “is preferable”, “ideally”, “nice to have”, “an advantage”, “desirable”, “would be great”"},"must":{"label":"A must","words":"“mandatory”, “required”, “essential”, or a plain statement with no softening word"},"small":{"label":"A small must","words":"“first”, “basic”, “some”: a little is enough"},"neither":{"label":"Hard to measure","words":"Lines like “excellent communication skills” describe the person they imagine. Nobody can check them, so don’t count them against yourself."},"uncheckedNote":"Claude translated this list, so a word or two may be missing."},"tags":{"must":"Must","wish":"A wish","small":"A small must","neither":"Hard to measure","have":"You have this"},"kinds":{"data":"Numbers & data","write":"Reading & writing","org":"Organising","check":"Checking & rules","people":"Working with people","hands":"Hands-on work","create":"Making & designing"},"ads1":{"ruleText":"This is practice at reading job ads, and a way to notice which kinds of work sound good to you. You are judging these jobs. They are not judging you. Job ads are written in insider language, so each one comes with a word list.","eyebrow":"What the job is","calledPre":"The ad calls it ","calledPost":", at {employer}.","weekTitle":"A week in this job","wordsTitle":"Words from the ad","wordsHint":"Insider words from the ad, in plain language.","asksTitle":"What they ask for","asksHint":"Lines in quotation marks are copied from the ad.","signalPre":"The word that decides it: ","knowTitle":"Good to know","readOriginal":"Read the original ad","readOriginalPost":" if you’re curious. You don’t have to.","uncheckedChip":"Not checked word for word","copyName":"jobs translated","summaryEyebrow":"Jobs, translated","summaryLede":"You’ve now been through {n} real job ads. Here’s what you said about them.","summaryJobs":"The {n} jobs","nextYes":"If you like, open the original ad for a job you liked and read it through once. The words explained here will look familiar. That’s all.","nextYesNoWords":"If you like, open the original ad for a job you liked and look for the small words that decide must or wish, like “ideally” or “required”. That’s all.","nextNone":"None of them has to fit. Knowing what you don’t want narrows the search too. The tasks you picked are the useful part: they show what to look for in the next ads.","ruleTextNoWords":"This is practice at reading job ads, and a way to notice which kinds of work sound good to you. You are judging these jobs. They are not judging you. Job ads are written in insider language, so everything here is in plain words.","asksHintUnchecked":"This ad couldn’t be checked word for word, so these are in our own words, and must or wish is our best reading of it. The ad may also ask for a thing or two that isn’t listed here.","findWordPrompt":"If you’re curious, open the original ad and look for the small words from the box above, like “ideally” or “required”. They tell you for sure which lines are musts. A line with none of them is usually a must."},"ads2":{"ruleTitle":"This round works the other way round.","ruleTitleAlone":"Practice reading real job ads.","ruleText":"You read the real ad first. Then you choose which words you want explained, guess which requirements are fixed and which are only wishes, and compare your own picture of the job with a plain version. Each job takes about ten minutes, and you can stop after any of them. Nobody is applying to anything today.","eyebrow":"The ad says","at":"at {employer}","readTitle":"Read the ad","readHint":"The ad opens in a new tab, and this page stays open. Read it once, from top to bottom. You don’t need to understand every word. Then come back here.","openAd":"Open the ad","readHintPasted":"Read the ad you found once, from top to bottom. You don’t need to understand every word. Then come back here.","wordsTitle":"Words from the ad","wordsHint":"Tap a word if you want it explained. Leave the ones you already know.","explain":"explain","linesTitle":"Must or wish?","linesHint":"These lines are copied from the ad. Guess first, then see what the wording tells you. A wrong guess costs nothing.","guess":{"must":"Must","wish":"Wish","unsure":"Not sure"},"same":{"must":"That’s how the ad means it: a must.","wish":"That’s how the ad means it: a wish."},"means":{"must":"The ad means it as a must.","wish":"The ad means it as a wish."},"pictureTitle":"Your picture of the job","pictureHint":"Before you look: what would you do all day in this job? Say it in a sentence or two, out loud or in your head. Then compare.","showPlain":"Show the plain version","copyName":"jobs with less help","copyWords":"Words I wanted explained: {n} of {total}","copyNone":"none","copyLines":"Must or wish:","copyLine":"{employer} line {n}: I said {said}, the ad means {is}","copyNothing":"nothing","summaryEyebrow":"Jobs, with less help","summaryLede":"This time you read the original ads yourself.","wordsSummaryTitle":"The words","wordsNone":"You didn’t open any of the {total} word explanations.","wordsSome":"You wanted {n} of {total} words explained, and read the other {rest} without help.","wordsRoundOne":"In the first round, every word was explained for you.","linesSummaryTitle":"Must or wish","linesMatched":"You read {n} of {total} lines the way the ad means them.","signalsLead":"These are the words to look for in any ad:","noWords":"No insider words to explain in these lines."},"tagsProbably":{"must":"Probably a must","wish":"Probably a wish","small":"Probably a small must","neither":"Hard to measure","have":"You have this"}};</script>
+<script>window.JC_DATA = {"page":"quiz","title":"Kinds of work quiz","directions":[{"id":"safety","name":"Food safety & quality","day":"You check that food is made safely and that the rules are followed. You walk through kitchens or production lines, take samples, keep records and explain what needs to change.","titles":["Quality Assistant","Food Safety Officer",{"title":"Technical Assistant (food)","meaning":"helps the team that looks after food safety and quality, not machines"},"Hygiene Auditor","Quality Technician"],"where":"Food factories, catering companies, supermarket suppliers and hotel groups.","bring":"Six years in restaurant kitchens, where food safety rules apply every day.","know":"Many of these jobs ask for a higher food safety certificate than kitchen staff need. Some employers pay for the course."},{"id":"buying","name":"Buying & suppliers","day":"You decide what a company buys, compare prices, talk to suppliers and make sure the right ingredients arrive on time.","titles":["Assistant Buyer","Purchasing Assistant","Buyer (food)","Supply Coordinator","Procurement Assistant"],"where":"Food wholesalers, restaurant groups, catering companies and food factories.","bring":"You said you enjoy ordering stock and dealing with suppliers. That is this job on a small scale.","know":"Most of the day is at a desk, on the phone and in spreadsheets. Search for “assistant buyer” first, because “buyer” on its own often means several years of experience."},{"id":"production","name":"Production planning","day":"In a large kitchen or food factory, you plan what gets made each day, how much, and by whom. When an order changes, you sort out the plan.","titles":["Production Planner","Production Coordinator","Production Supervisor (food)","Central Kitchen Supervisor"],"where":"Food factories, bakeries, central kitchens of restaurant chains and airline caterers.","bring":"Six years of kitchen services, each one a plan that has to come together at a fixed time.","know":"Factories often run early shifts. If daytime hours matter to you, check the hours in each ad."},{"id":"development","name":"Recipe & product development","day":"You invent and test new dishes or products for a food company or a chain, write the recipes down exactly, and adjust them until they work in large amounts.","titles":["Development Chef","Product Developer (food)","Culinary Development Assistant","Development Chef Assistant"],"where":"Food manufacturers, supermarket suppliers and restaurant chains.","bring":"Your training as a chef and six years of cooking. This is the direction closest to the cooking itself.","know":"These jobs are fewer than the others, and many sit in food factories that supply supermarkets. They usually have office hours."},{"id":"teaching","name":"Teaching & training","day":"You teach cooking at a college, in a training kitchen or to new staff. You plan sessions, show techniques and help people get better.","titles":["Chef Trainer","Catering Lecturer","Cookery School Tutor","Apprenticeship Trainer (hospitality)"],"where":"Colleges, cookery schools, training companies and large restaurant groups.","bring":"You said you like showing new cooks how things work. That is most of this job.","know":"College jobs may ask for a teaching certificate, which can often be done part-time while you work."},{"id":"sales","name":"Sales & customer care for food suppliers","day":"You look after restaurants and shops that buy from a food supplier. You visit them, take orders, suggest products and fix problems.","titles":[{"title":"Account Manager (food service)","meaning":"looks after the restaurants and cafés that already buy from a supplier"},"Field Sales Representative (food)","Customer Service Coordinator",{"title":"Business Development Chef","meaning":"a chef who cooks with a supplier’s products to show restaurants what they can do"}],"where":"Food wholesalers, drinks companies, equipment suppliers and specialist food producers.","bring":"You’ve been on the other side: you said you order stock and deal with suppliers in your kitchen.","know":"Sales jobs usually come with targets. Customer care jobs look after customers you already have. Check which one an ad really describes."},{"id":"care","name":"Cooking in schools, hospitals & care homes","day":"You still cook, but in daytime hours. You plan menus for people with different needs, such as allergies or soft diets, and run a small team.","titles":["School Cook","Kitchen Manager (schools)","Hospital Chef","Care Home Cook","Catering Supervisor"],"where":"School caterers, hospitals, care homes and councils.","bring":"Your six years of cooking, and these jobs mostly have the daytime hours you said you want.","know":"Pay is often by the hour, and school jobs may be term time only. Work out the yearly total before comparing."}],"questions":[{"q":"Which Tuesday morning sounds nicest?","options":[["production","Reworking tomorrow’s production plan after a big order came in late"],["teaching","Showing a group of trainees how to break down a whole chicken"],["sales","Visiting a restaurant that buys from us to talk through its new menu"],["care","Cooking lunch for a school, with three different allergy versions"]]},{"q":"Which finished piece of work would make you proudest?","options":[["safety","A kitchen that passed its inspection because of the changes I suggested"],["development","A new sauce on supermarket shelves, made from my recipe"],["sales","A customer who stayed with us for years because I looked after them"],["care","A care home menu that the residents look forward to"]]},{"q":"How much contact with people do you want in a working day?","options":[["safety","Some, mostly short visits and talks about what I found"],["buying","Lots of calls and emails with suppliers, from a desk"],["teaching","A room full of people for most of the day"],["care","A small team I know well, and the people we cook for"]]},{"q":"A delivery arrives with half the order missing. What do you want to do?","options":[["safety","Check whether what did arrive is safe to use"],["buying","Call the supplier and get the rest here this afternoon"],["production","Rework today’s plan around what we actually have"],["sales","Tell our customers early and offer them something else"]]},{"q":"Which part of a new menu would you want to work on?","options":[["buying","Finding suppliers and a good price for the ingredients"],["production","Working out how to make it in large amounts, on time"],["development","Creating and testing the dishes until they’re right"],["care","Making sure everyone can eat it, including special diets"]]},{"q":"Which compliment would mean the most to you?","options":[["safety","“Because of you, nobody got ill.”"],["production","“Everything was ready on time, as always.”"],["development","“I’ve never tasted anything like this.”"],["teaching","“You explained it so that I finally got it.”"]]},{"q":"Every job has some pressure. Which kind could you live with?","options":[["buying","Prices going up, and having to find a cheaper way"],["development","A launch date for a product that isn’t right yet"],["teaching","A class that isn’t getting it, with an exam coming"],["sales","A monthly target that shows clearly how I’m doing"]]},{"q":"How would you like your week to look?","options":[["buying","At a desk most days, with the odd visit to a supplier"],["teaching","A timetable of sessions that repeats every week"],["sales","On the road, visiting different customers each day"],["care","Monday to Friday, and home by mid-afternoon"]]},{"q":"Think of a good day in a kitchen. What made it good?","hint":"Any good day counts, even a small one.","options":[["safety","Everything was clean, labelled and in its place"],["production","A huge service went exactly to plan"],["sales","A regular came back to tell us how much they loved it"],["care","I cooked something simple that made someone’s day"]]},{"q":"A café wants to throw away less food. Which part is yours?","options":[["safety","Checking how food is stored and how long it really lasts"],["buying","Ordering smaller amounts, more often, from the right suppliers"],["development","Creating dishes that use up what’s left over"],["care","Planning portions so people get what they need, no more"]]},{"q":"Someone hands you a messy stock room. What do you most want to do?","options":[["safety","Throw out what’s past its date and label everything else"],["buying","Count it all and fix what we order next time"],["production","Plan the week’s cooking around what’s already there"],["teaching","Show the team a system so it stays tidy"]]},{"q":"Which sentence fits you?","options":[["buying","I like comparing options until I find the right deal"],["production","I like it when a plan works out exactly"],["development","I like trying something new to see if it works"],["sales","I like it when I can win someone over"]]},{"q":"What gives you energy at work?","options":[["production","Ticking off a long list and seeing things get done"],["development","Tasting, adjusting and tasting again"],["teaching","Seeing someone get better at something week by week"],["care","Knowing that what I cooked really mattered to someone"]]},{"q":"A food company gives you one month. Which task do you pick?","options":[["safety","Write clear food safety instructions for all their kitchens"],["development","Create a new vegetarian range for their shops"],["teaching","Plan and run the training for their new kitchen staff"],["sales","Win five new restaurants as customers"]]}],"pageId":"698e521667"};</script>
+<script>
+/* Job Compass shared page code.
+   Every page gets: window.JC_DATA (the content Claude wrote), window.JC_STRINGS (page text),
+   and this file. The page template then calls JC.boot(start). Nothing here talks to a server;
+   progress stays in this browser's storage. */
+var JC = (function () {
+  'use strict';
+
+  var DATA = window.JC_DATA || {};
+  var S = window.JC_STRINGS || {};
+
+  // ---- text -------------------------------------------------------------
+  function lookup(key) {
+    var parts = key.split('.'), v = S;
+    for (var i = 0; i < parts.length; i++) {
+      if (v == null || typeof v !== 'object') return null;
+      v = v[parts[i]];
+    }
+    return v;
+  }
+  // t('quiz.count', {n: 3, total: 14}). Values may be {one, other} for plurals.
+  function t(key, vars) {
+    var v = lookup(key);
+    if (v == null) { try { console.warn('Missing text: ' + key); } catch (e) {} return key; }
+    if (typeof v === 'object' && !Array.isArray(v)) v = (vars && vars.n === 1) ? v.one : v.other;
+    if (Array.isArray(v)) return v;
+    return String(v).replace(/\{(\w+)\}/g, function (m, k) {
+      return vars && vars[k] != null ? String(vars[k]) : m;
+    });
+  }
+
+  // Quotation marks come from the page text, so a translation can use its own („…“ in German).
+  function q(s) { return t('common.quoteOpen') + s + t('common.quoteClose'); }
+
+  function niceDate(iso) {
+    if (!iso) return '';
+    var d = new Date(iso + 'T12:00:00Z');
+    if (isNaN(d)) return iso;
+    try {
+      return d.toLocaleDateString(t('meta.locale'), { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    } catch (e) { return iso; }
+  }
+
+  // ---- DOM --------------------------------------------------------------
+  function h(tag, props) {
+    var n = document.createElement(tag), k, v, i, c;
+    if (props) for (k in props) {
+      v = props[k];
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v;
+      else if (k === 'text') n.textContent = v;
+      else if (k === 'style') n.setAttribute('style', v);
+      else if (k.slice(0, 2) === 'on') n.addEventListener(k.slice(2), v);
+      else n.setAttribute(k, v === true ? '' : v);
+    }
+    for (i = 2; i < arguments.length; i++) {
+      c = arguments[i];
+      if (c == null || c === false) continue;
+      if (Array.isArray(c)) c.forEach(function (x) { if (x != null && x !== false) n.append(x); });
+      else n.append(c);
+    }
+    return n;
+  }
+
+  function section(title, hint) {
+    var s = h('section', { class: 'stack' }, h('h2', null, h('span', { text: title })), hint && h('p', { class: 'hint', text: hint }));
+    for (var i = 2; i < arguments.length; i++) if (arguments[i]) s.append(arguments[i]);
+    return s;
+  }
+
+  function step(num, title, hint) {
+    var s = h('section', { class: 'stack' },
+      h('h2', null, num && h('span', { class: 'num', 'aria-hidden': 'true', text: String(num) }), h('span', { text: title })),
+      hint && h('p', { class: 'hint', text: hint }));
+    for (var i = 3; i < arguments.length; i++) if (arguments[i]) s.append(arguments[i]);
+    return s;
+  }
+
+  function focusTitle(scroll) {
+    if (scroll !== false) window.scrollTo(0, 0);
+    var el = document.getElementById('focus-title');
+    if (el) { try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }
+  }
+
+  // ---- storage ----------------------------------------------------------
+  // Each built page has its own pageId, so two people's pages on one device never mix.
+  function store(name, valid) {
+    var key = 'job-compass:' + name + ':' + (DATA.pageId || 'page');
+    return {
+      load: function () {
+        try { var s = JSON.parse(localStorage.getItem(key) || 'null'); return valid(s) ? s : null; } catch (e) { return null; }
+      },
+      save: function (state) { try { localStorage.setItem(key, JSON.stringify(state)); } catch (e) {} },
+      clear: function () { try { localStorage.removeItem(key); } catch (e) {} }
+    };
+  }
+
+  function isIndexList(l, max) {
+    return Array.isArray(l) && l.every(function (n, i) { return typeof n === 'number' && n % 1 === 0 && n >= 0 && n < max && l.indexOf(n) === i; });
+  }
+
+  // ---- pieces -----------------------------------------------------------
+  function trail(label, total, current, stateOf) {
+    var bar = h('div', { class: 'trail', role: 'img', 'aria-label': label, style: 'grid-template-columns:repeat(' + total + ',1fr)' });
+    for (var n = 0; n < total; n++) {
+      var st = n === current ? 'now' : stateOf(n);
+      bar.append(h('span', { class: 'seg' + (st ? ' ' + st : '') }));
+    }
+    return h('div', { class: 'stack' }, h('p', { class: 'count', text: label }), bar);
+  }
+
+  // Up to `max` picks from a list of task texts. selected is an array of indexes, changed in place.
+  function picker(idPrefix, texts, selected, max, onChange) {
+    var list = h('div', { class: 'tasks' });
+    var status = h('p', { class: 'hint', role: 'status' });
+    var buttons = [];
+    function paint() {
+      var full = selected.length >= max;
+      buttons.forEach(function (b, n) {
+        var on = selected.indexOf(n) !== -1;
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (full && !on) b.setAttribute('aria-disabled', 'true'); else b.removeAttribute('aria-disabled');
+      });
+      status.textContent = full ? t('common.pickFull', { max: max }) : '';
+    }
+    texts.forEach(function (txt, n) {
+      var b = h('button', { type: 'button', class: 'task', id: idPrefix + '-' + n, onclick: function () {
+        var at = selected.indexOf(n);
+        if (at !== -1) selected.splice(at, 1);
+        else if (selected.length < max) selected.push(n);
+        else return;
+        paint();
+        onChange();
+      } }, h('span', { class: 'box', 'aria-hidden': 'true' }), h('span', { class: 'txt', text: txt }));
+      buttons.push(b);
+      list.append(b);
+    });
+    paint();
+    return h('div', { class: 'stack' }, list, status);
+  }
+
+  // Three buttons: I'd like this / Not sure / No thanks. Tapping the chosen one again clears it.
+  function reactions(idPrefix, current, onChange) {
+    var box = h('div', { class: 'react' });
+    var opts = ['yes', 'maybe', 'no'];
+    opts.forEach(function (k) {
+      box.append(h('button', { type: 'button', class: 'btn quiet', id: idPrefix + '-' + k,
+        'aria-pressed': current() === k ? 'true' : 'false',
+        onclick: function () {
+          var next = current() === k ? null : k;
+          onChange(next);
+          Array.prototype.forEach.call(box.children, function (c) {
+            c.setAttribute('aria-pressed', c.id === idPrefix + '-' + next ? 'true' : 'false');
+          });
+        } }, t('common.react.' + k)));
+    });
+    return box;
+  }
+
+  // Copy button with a manual fallback, plus "look again" and "start again" with a confirm step.
+  function copyPanel(o) {
+    var status = h('p', { class: 'fine', id: 'copy-status', role: 'status' });
+    var fallback = h('textarea', { id: 'copy-fallback', readonly: true, hidden: true, 'aria-label': t('common.copyFallbackLabel') });
+    var confirmRow = h('div', { class: 'row start', id: 'reset-confirm', hidden: true },
+      h('span', { text: o.resetQuestion }),
+      h('button', { type: 'button', class: 'btn', id: 'btn-reset-yes', onclick: o.onReset }, t('common.resetYes')),
+      h('button', { type: 'button', class: 'btn quiet', id: 'btn-reset-no', onclick: function () { confirmRow.hidden = true; } }, t('common.resetNo')));
+    function copy() {
+      var text = o.getText();
+      function manual() {
+        fallback.hidden = false;
+        fallback.value = text;
+        fallback.focus();
+        fallback.select();
+        status.textContent = t('common.copyBlocked');
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          status.textContent = t('common.copied');
+          fallback.value = text;
+        }, manual);
+      } catch (e) { manual(); }
+    }
+    return h('div', { class: 'stack' },
+      h('div', { class: 'row start' },
+        h('button', { type: 'button', class: 'btn', id: 'btn-copy', onclick: copy }, o.copyLabel),
+        o.reviewLabel && h('button', { type: 'button', class: 'btn quiet', id: 'btn-review', onclick: o.onReview }, o.reviewLabel),
+        h('button', { type: 'button', class: 'btn quiet', id: 'btn-reset', onclick: function () { confirmRow.hidden = false; } }, t('common.startAgain'))),
+      confirmRow, status, fallback);
+  }
+
+  function bars(rows) {
+    // rows: [{label, n}] already sorted. Only used for counts of the person's own picks.
+    var max = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat([1]));
+    var box = h('div', { class: 'kinds' });
+    rows.forEach(function (r) {
+      box.append(h('div', { class: 'kind' },
+        h('span', { text: r.label }),
+        h('span', { class: 'n', text: r.count }),
+        h('span', { class: 'bar', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.n / max * 100) + '%' }))));
+    });
+    return box;
+  }
+
+  function header(lines) {
+    // First line of every copied text names the page, so Claude knows what it is reading.
+    return [t('common.copyHeader', { page: lines })];
+  }
+
+  // ---- start --------------------------------------------------------------
+  function boot(start) {
+    var app = document.getElementById('app');
+    try { document.documentElement.lang = t('meta.lang'); } catch (e) {}
+    if (DATA.title) document.title = DATA.title;
+    var hot = window.claude && window.claude.hot;
+    function go(saved) {
+      app.textContent = '';
+      start(app, saved || null);
+    }
+    try {
+      if (hot && hot.ready) { hot.ready(go); return; }
+    } catch (e) {}
+    go((hot && hot.data) || null);
+  }
+
+  return {
+    DATA: DATA, t: t, q: q, get: lookup, h: h, section: section, step: step, focusTitle: focusTitle, store: store,
+    isIndexList: isIndexList, trail: trail, picker: picker, reactions: reactions, copyPanel: copyPanel,
+    bars: bars, header: header, niceDate: niceDate, boot: boot
+  };
+})();
+
+</script>
+<script>
+/* Step 2: the fair quiz.
+   Every kind of work is offered equally often, and every pair meets equally often
+   (scripts/check_quiz.py makes sure). Ranking is "picked X of the Y times it was offered". */
+(function () {
+  'use strict';
+  var t = JC.t, h = JC.h, D = JC.DATA;
+  var DIRS = {}, ORDER = D.directions.map(function (d) { DIRS[d.id] = d; return d.id; });
+  var Q = D.questions;
+
+  function fresh() { return { answers: Q.map(function () { return null; }), pos: 0, feel: null }; }
+  function valid(s) {
+    if (!s || !Array.isArray(s.answers) || s.answers.length !== Q.length) return false;
+    if (typeof s.pos !== 'number' || s.pos < 0 || s.pos > Q.length || s.pos % 1 !== 0) return false;
+    if (!(s.feel === null || s.feel === 'yes' || s.feel === 'partly' || s.feel === 'no')) return false;
+    return s.answers.every(function (a, i) {
+      return a === null || a === 'skip' || Q[i].options.some(function (o) { return o[0] === a; });
+    });
+  }
+  var store = JC.store('quiz', valid);
+  var state = fresh();
+  var app, lock = false, reduced = false;
+  try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  function score(answers) {
+    var picked = {}, offered = {};
+    ORDER.forEach(function (k) { picked[k] = 0; offered[k] = 0; });
+    answers.forEach(function (a, i) {
+      if (a === null || a === 'skip') return;
+      Q[i].options.forEach(function (o) { offered[o[0]]++; });
+      picked[a]++;
+    });
+    return ORDER.map(function (k, idx) {
+      return { key: k, picked: picked[k], offered: offered[k], ratio: offered[k] ? picked[k] / offered[k] : 0, idx: idx };
+    }).sort(function (a, b) { return b.ratio - a.ratio || b.picked - a.picked || a.idx - b.idx; });
+  }
+  function answeredCount() { return state.answers.filter(function (a) { return a !== null && a !== 'skip'; }).length; }
+
+  function go(pos) {
+    state.pos = pos;
+    render();
+    JC.focusTitle();
+  }
+  function render() {
+    app.textContent = '';
+    if (state.pos >= Q.length) renderResults(); else renderQuestion();
+    store.save(state);
+  }
+
+  function renderQuestion() {
+    var i = state.pos, q = Q[i], a = state.answers[i];
+    // Rotate where options appear so no kind of work always sits on top.
+    var r = (i * 3 + 1) % q.options.length;
+    var opts = q.options.slice(r).concat(q.options.slice(0, r));
+
+    app.append(h('header', { class: 'stack' },
+      h('p', { class: 'eyebrow', text: t('quiz.eyebrow') }),
+      h('h1', { text: t('quiz.title') }),
+      i === 0 && h('p', { class: 'lede', text: t('quiz.lede', { n: Q.length, mins: Math.max(5, Math.round(Q.length * 0.6)) }) })));
+
+    app.append(JC.trail(t('quiz.count', { i: i + 1, total: Q.length }), Q.length, i, function (n) {
+      var x = state.answers[n];
+      return x === 'skip' ? 'skip' : (x !== null ? 'done' : '');
+    }));
+
+    var list = h('div', { class: 'opts' });
+    opts.forEach(function (o) {
+      list.append(h('button', {
+        type: 'button', class: 'opt', id: 'opt-' + i + '-' + o[0],
+        'aria-pressed': a === o[0] ? 'true' : 'false',
+        onclick: function () { choose(i, o[0], list); }
+      }, h('span', { class: 'dot', 'aria-hidden': 'true' }), h('span', { class: 'txt', text: o[1] })));
+    });
+    app.append(h('section', { class: 'stack' },
+      h('h2', { id: 'focus-title', tabindex: '-1', text: q.q }),
+      q.hint && h('p', { class: 'hint', text: q.hint }),
+      list));
+
+    var answered = a !== null && a !== 'skip';
+    app.append(h('div', { class: 'row' },
+      h('button', { type: 'button', class: 'btn quiet', id: 'btn-back', disabled: i === 0, onclick: function () { if (!lock) go(i - 1); } }, t('common.back')),
+      h('button', { type: 'button', class: 'btn quiet', id: 'btn-next', onclick: function () {
+        if (lock) return;
+        if (!answered) state.answers[i] = 'skip';
+        go(i + 1);
+      } }, answered ? t('common.next') : t('quiz.skip'))));
+  }
+
+  function choose(i, key, list) {
+    if (lock) return;
+    lock = true;
+    state.answers[i] = key;
+    Array.prototype.forEach.call(list.children, function (b) {
+      b.setAttribute('aria-pressed', b.id === 'opt-' + i + '-' + key ? 'true' : 'false');
+    });
+    store.save(state);
+    setTimeout(function () { lock = false; go(i + 1); }, reduced ? 0 : 240);
+  }
+
+  function resultText(rows) {
+    var skipped = Q.length - answeredCount();
+    var lines = JC.header(t('quiz.copyName'));
+    lines.push('');
+    rows.forEach(function (r, n) {
+      lines.push((n + 1) + '. ' + DIRS[r.key].name + ': ' + (r.offered ? t('quiz.copyPicked', { picked: r.picked, offered: r.offered }) : t('quiz.notRated')));
+    });
+    if (skipped) lines.push(t('quiz.copySkipped', { n: skipped }));
+    var words = searchWords(rows);
+    if (words.length) {
+      lines.push('');
+      lines.push(t('quiz.copySearch'));
+      words.forEach(function (x) { lines.push('- ' + x.title + (x.meaning ? ' (' + x.meaning + ')' : '')); });
+    }
+    lines.push('');
+    lines.push(t('quiz.feelQuestion') + ' ' + (state.feel ? t('quiz.feel.' + state.feel) : t('quiz.copyNoAnswer')));
+    return lines.join('\n');
+  }
+
+  function block(label, node) { return h('div', null, h('p', { class: 'lab', text: label }), node); }
+
+  // A title is either "Job Title" or {title, meaning}. The meaning is in the page's language,
+  // for titles in another language or titles that don't explain themselves.
+  function asTitle(x) { return typeof x === 'string' ? { title: x } : x; }
+  function titleList(titles, cls) {
+    var ts = (titles || []).map(asTitle);
+    if (!ts.some(function (x) { return x.meaning; })) {
+      var chips = h('ul', { class: 'chips' });
+      ts.forEach(function (x) { chips.append(h('li', { text: x.title })); });
+      return chips;
+    }
+    var ul = h('ul', { class: 'titles' + (cls ? ' ' + cls : '') });
+    ts.forEach(function (x) {
+      ul.append(h('li', null, h('b', { text: x.title }), x.meaning && h('span', { text: x.meaning })));
+    });
+    return ul;
+  }
+
+  // The kinds of work picked most: the top one, plus up to two more that are close behind it
+  // (within about two picks out of eight). A clear winner gets the box to itself.
+  function topRows(rows) {
+    var picked = rows.filter(function (r) { return r.picked > 0; });
+    if (!picked.length) return [];
+    return picked.filter(function (r) { return picked[0].ratio - r.ratio <= 0.26; }).slice(0, 3);
+  }
+  // At most three titles per kind of work (the first ones, so put the best search term first)
+  // and eight in all, so the box stays something you can actually use.
+  function searchWords(rows) {
+    var seen = {}, out = [];
+    topRows(rows).forEach(function (r) {
+      (DIRS[r.key].titles || []).map(asTitle).slice(0, 3).forEach(function (x) {
+        var k = x.title.toLowerCase();
+        if (!seen[k] && out.length < 8) { seen[k] = true; out.push(x); }
+      });
+    });
+    return out;
+  }
+
+  function renderResults() {
+    var rows = score(state.answers);
+    var answered = answeredCount();
+
+    app.append(h('header', { class: 'stack' },
+      h('p', { class: 'eyebrow', text: t('quiz.eyebrow') }),
+      h('h1', { id: 'focus-title', tabindex: '-1', text: t('quiz.resultsTitle') }),
+      h('p', { class: 'lede', text: t('quiz.resultsLede') })));
+
+    if (answered === 0) app.append(h('p', { class: 'note', text: t('quiz.noneAnswered') }));
+    else if (answered < Math.ceil(Q.length / 2)) app.append(h('p', { class: 'note', text: t('quiz.fewAnswered', { n: answered, total: Q.length }) }));
+    else if (rows[1] && rows[1].picked > 0 && rows[0].ratio - rows[1].ratio <= 0.13) app.append(h('p', { class: 'note', text: t('quiz.closeTop') }));
+
+    var list = h('div', { class: 'dirs' });
+    rows.forEach(function (r, n) {
+      var d = DIRS[r.key];
+      var isTop = n === 0 && r.picked > 0;
+      list.append(h('details', { class: 'dir' + (isTop ? ' top' : ''), id: 'dir-' + r.key, open: answered > 0 && n < 3 && r.picked > 0 },
+        h('summary', null,
+          h('span', { class: 'name' }, isTop && h('span', { class: 'badge', text: t('quiz.mostPicked') }), isTop && h('br'), d.name),
+          h('span', { class: 'score', text: r.offered ? t('quiz.score', { picked: r.picked, offered: r.offered }) : t('quiz.notRated') }),
+          h('span', { class: 'chev', 'aria-hidden': 'true' }),
+          h('span', { class: 'bar', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.round(r.ratio * 100) + '%' }))),
+        h('div', { class: 'body' },
+          block(t('quiz.labDay'), h('p', { text: d.day })),
+          block(t('quiz.labTitles'), h('div', null, titleList(d.titles), d.where && h('p', { class: 'where', text: d.where }))),
+          d.bring && block(t('quiz.labBring'), h('p', { text: d.bring })),
+          d.know && block(t('quiz.labKnow'), h('p', { text: d.know })))));
+    });
+    app.append(list);
+
+    var words = searchWords(rows);
+    if (words.length) {
+      app.append(h('section', { class: 'searchbox stack', id: 'search-words' },
+        h('h2', null, h('span', { text: t('quiz.searchTitle') })),
+        h('p', { class: 'hint', text: t('quiz.searchHint') }),
+        titleList(words)));
+    }
+
+    // "None of these feels right" is a real answer, not a failure.
+    var feelNote = h('p', { class: 'note', hidden: state.feel !== 'no', text: t('quiz.feelNoNote') });
+    var feel = h('div', { class: 'react' });
+    ['yes', 'partly', 'no'].forEach(function (k) {
+      feel.append(h('button', { type: 'button', class: 'btn quiet', id: 'feel-' + k, 'aria-pressed': state.feel === k ? 'true' : 'false',
+        onclick: function () {
+          state.feel = state.feel === k ? null : k;
+          Array.prototype.forEach.call(feel.children, function (c) { c.setAttribute('aria-pressed', c.id === 'feel-' + state.feel ? 'true' : 'false'); });
+          feelNote.hidden = state.feel !== 'no';
+          store.save(state);
+        } }, t('quiz.feel.' + k)));
+    });
+    app.append(JC.section(t('quiz.feelQuestion'), t('quiz.feelHint'), feel, feelNote));
+
+    app.append(JC.copyPanel({
+      copyLabel: t('quiz.copy'),
+      getText: function () { return resultText(score(state.answers)); },
+      reviewLabel: t('quiz.review'),
+      onReview: function () { go(0); },
+      resetQuestion: t('quiz.resetQuestion', { n: Q.length }),
+      onReset: function () { state = fresh(); store.clear(); go(0); }
+    }));
+    app.append(h('p', { class: 'fine', text: t('quiz.footer', { n: Q.length }) }));
+  }
+
+  JC.boot(function (root, saved) {
+    app = root;
+    var s = valid(saved) ? saved : store.load();
+    if (s) state = { answers: s.answers.slice(), pos: s.pos, feel: s.feel };
+    render();
+  });
+})();
+
+</script>
+</body>
+</html>

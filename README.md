@@ -2,6 +2,8 @@
 
 A Claude skill for the time before the job search: when you don't know yet which kind of work you want, and job ads make it worse.
 
+**See how it works and try the example pages:** [maaasyd.github.io/job-compass](https://maaasyd.github.io/job-compass/)
+
 ![Three Job Compass pages on a phone: crossing out kinds of work, a quiz question, and guessing whether a line from a job ad is a must or a wish](docs/pages.png)
 
 ## Why I built this
@@ -88,7 +90,7 @@ job-compass/              the skill (this folder is what gets zipped)
   scripts/                build, checks (quiz fairness, page data, quotes) and the browser test
   examples/               a made-up person and made-up ads, with the built pages
 evals/                    test prompts for the skill
-docs/                     images for this README
+docs/                     the website (GitHub Pages) and images for this README
 ```
 
 Run the checks after any change:

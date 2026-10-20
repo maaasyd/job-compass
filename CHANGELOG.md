@@ -20,6 +20,7 @@ From a test with four simulated people, a review, and a test drive with three mo
 - When the browser test can't run, Claude relies on the build checks and asks the person to say if a page looks wrong.
 - Claude only uses ad links from search results or pages it opened, never a guessed address.
 - The README explains what the ad steps look like without a browser tool.
+- A small website in `docs/` explains Job Compass and lets people click through the four example pages. It's published with GitHub Pages.
 - SKILL.md shows the version and the licence, so you can tell which version is installed.
 - The steps are numbered 1 to 4 everywhere, one number per page. The older entries below use the earlier numbering, where the ad steps were numbered 2 and 3.
 
